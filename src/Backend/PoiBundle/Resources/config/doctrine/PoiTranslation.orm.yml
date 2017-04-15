@@ -1,0 +1,29 @@
+Backend\PoiBundle\Entity\PoiTranslation:
+  type: entity
+  table: poi_translate
+  uniqueConstraints:
+    poi_lookup_unique_idx:
+      columns: locale,object_id,field
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    locale:
+      type: string
+      length: 32
+    field:
+      type: string
+      length: 32
+    content:
+      type: text
+      nullable: true
+  manyToOne:
+    object:
+      targetEntity: Poi
+      inversedBy: translations
+      joinColumn:
+        name: object_id
+        referencedColumnName: id
+        onDelete: CASCADE

@@ -1,0 +1,85 @@
+Backend\PoiBundle\Entity\Etap:
+  type: entity
+  table: szlak_etap
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    powiazanie:
+      type: string
+      length: 15
+      nullable: true
+      values: ['poi', 'media']
+      options:
+          default: 'poi'
+    rodzaj:
+      type: string
+      length: 60
+      nullable: true
+      values: ['etap.rowerowy', 'etap.pieszy', 'etap.samochodowy', 'etap.zeglugowy', 'etap.kajakowy']
+      options:
+          default: 'etap.rowerowy'
+    style:
+        type: text
+        nullable: true
+    wspolrzedne:
+        type: text
+        nullable: true
+    stan:
+        type: string
+        nullable: true
+    position:
+        type: integer
+        nullable: true
+    nazwa:
+        type: string
+        length: 255
+        nullable: true
+    opis:
+        type: text
+        nullable: true
+    dlugosc:
+      type: integer
+      nullable: true
+      options:
+          default: 0
+
+  manyToOne:
+      poi:
+          targetEntity: Backend\PoiBundle\Entity\Poi
+          inversedBy: etap_poi
+          cascade: ["persist"]
+          joinColumns:
+              poi_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+      szlak:
+          targetEntity: Backend\PoiBundle\Entity\Szlak
+          inversedBy: etap_szlak
+          cascade: ["persist"]
+          joinColumns:
+              szlak_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+      media:
+          targetEntity: Application\Sonata\MediaBundle\Entity\Media
+          inversedBy: etapy
+          cascade: ["persist"]
+          joinColumns:
+              media_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+#      data_wydarzenia:
+#          targetEntity: Backend\ArtykulyIwydarzeniaBundle\Entity\DataWydarzenia
+#          inversedBy: etapy_data_wydarzenia
+#          cascade: ["persist"]
+#          joinColumns:
+#              data_wydarzenia_id:
+#                  referencedColumnName: id
+#                  onDelete: CASCADE
+
+  lifecycleCallbacks:
+      prePersist: []
+      preUpdate: []

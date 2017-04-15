@@ -1,0 +1,434 @@
+Backend\PoiBundle\Entity\Poi:
+  type: entity
+  table: poi
+  repositoryClass: Backend\PoiBundle\Entity\PoiRepository
+  gedmo:
+    loggable: true
+    translation:
+      locale: lang
+      entity: Backend\PoiBundle\Entity\PoiTranslation
+  inheritanceType: JOINED
+  discriminatorColumn:
+    name: class_name
+    type: string
+  discriminatorMap:
+    poi: 'Backend\PoiBundle\Entity\Poi'
+    szlak: 'Backend\PoiBundle\Entity\Szlak'
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    nazwa:
+      type: string
+      length: 255
+      gedmo:
+        - versioned
+        - translatable
+    opis:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+        - translatable
+    status_poi:
+      type: string
+      length: 30
+      values: ['w edycji','zgloszony', 'zaakceptowany', 'opublikowany', 'odrzucony']
+      options:
+          default: 'w edycji'
+      gedmo:
+        - versioned
+        - translatable
+    polozenie:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+        - translatable
+      type: text
+      nullable: true
+      gedmo:
+        - translatable
+        - versioned
+    ocena_avg:
+      type: integer
+      nullable: true
+    hits:
+      type: integer
+      nullable: true
+    alias:
+      type: string
+      length: 255
+      nullable: true
+      gedmo:
+          - translatable
+          - versioned
+    ulica:
+      type: string
+      length: 255
+      nullable: true
+      gedmo:
+        - versioned
+    nrdomu:
+      type: string
+      length: 20
+      nullable: true
+      gedmo:
+        - versioned
+    nrtel:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+    nrfax:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+    email:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+    www:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+    wwwdod:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+    wwwdod_nazwa:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+        - translatable
+    wwwdod_opis:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+        - translatable
+    sezonowosc:
+      type: text
+      nullable: true
+    dladzieci:
+      type: boolean
+      nullable: true
+      gedmo:
+        - versioned
+    dlaniepelnosprawnych:
+      type: boolean
+      nullable: true
+      gedmo:
+        - versioned
+    wstep:
+      type: string
+      length: 30
+      values: ['Wolny', 'Płatny', 'nie dotyczy']
+      nullable: true
+      gedmo:
+        - versioned
+    wgs_x:
+      type: float
+      nullable: true
+      gedmo:
+        - versioned
+    wgs_y:
+      type: float
+      nullable: true
+      gedmo:
+        - versioned
+      type: text
+      nullable: true
+      gedmo:
+          - translatable
+          - versioned
+    wprowadzajacy_nazwa:
+      type: string
+      length: 255
+      nullable: true
+      gedmo:
+        - versioned
+    wprowadzajacy_kontakt:
+      type: string
+      length: 255
+      nullable: true
+      gedmo:
+        - versioned
+    zrodlo:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+    created_at:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updated_at:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+          on: update
+    slug:
+      type: string
+      length: 255
+      nullable: true
+      gedmo:
+        slug:
+          separator: _
+          style: camel
+          fields:
+            - nazwa
+            - status_poi
+            - id
+    slug_media:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+    slug_rodzaj:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+
+  indexes:
+    search_idx:
+      columns: slug
+    poi_status_idx:
+      columns: status_poi
+    poi_nazwa_idx:
+      columns: nazwa
+    poi_updated_at_idx:
+      columns: updated_at
+    poi_dladzieci_idx:
+      columns: dladzieci
+    poi_dlaniepelnosprawnych_idx:
+      columns: dlaniepelnosprawnych
+  manyToOne:
+    adres:
+          targetEntity: Backend\AdministracyjneBundle\Entity\Adres
+          inversedBy: poi
+          joinColumns:
+              adres_id:
+                  referencedColumnName: id
+#    kopie_robocze_rodzic:
+#      targetEntity: Poi
+#      inversedBy: kopie_robocze
+#      joinColumns:
+#        kopia_robocza_rodzic_id:
+#          referencedColumnName: id
+#          onDelete: CASCADE
+    created_by_user:
+      targetEntity: Application\Sonata\UserBundle\Entity\User
+      inversedBy: poi_created
+      joinColumns:
+        createdby_user_id:
+          referencedColumnName: id
+    user:
+      targetEntity: Application\Sonata\UserBundle\Entity\User
+      inversedBy: wprowadzajacy_w_poi
+      joinColumns:
+        wprowadzajacy:
+          referencedColumnName: id
+#    ankieta:
+#      targetEntity: Backend\AnkietyIsondyBundle\Entity\Ankieta
+#      inversedBy: poi
+#      joinColumns:
+#        ankieta_id:
+#          referencedColumnName: id
+#      gedmo:
+#        - versioned
+
+#    miejscowosc:
+#      targetEntity: Backend\AdministracyjneBundle\Entity\Miejscowosc
+#      inversedBy: poi
+#      joinColumns:
+#        miejscowosc_id:
+#          referencedColumnName: id
+#      gedmo:
+#        - versioned
+#    miejscowosc_poczta:
+#      targetEntity: Backend\AdministracyjneBundle\Entity\Miejscowosc
+#      inversedBy: poi_poczta
+#      joinColumns:
+#        miejscowosc_poczta_id:
+#          referencedColumnName: id
+#      gedmo:
+#        - versioned
+#    kod_pocztowy:
+#      targetEntity: Backend\AdministracyjneBundle\Entity\KodPocztowy
+#      inversedBy: poi
+#      joinColumns:
+#        kod_pocztowy_id:
+#          referencedColumnName: id
+#      gedmo:
+#        - versioned
+    modified_by_user:
+      targetEntity: Application\Sonata\UserBundle\Entity\User
+      inversedBy: poi_modified
+      joinColumns:
+        modifiedby_user_id:
+          referencedColumnName: id
+      gedmo:
+        - versioned
+  manyToMany:
+#    cechy:
+#      targetEntity: Cecha
+#      inversedBy: poi
+#      joinTable:
+#        name: poi_has_cecha_many
+#        joinColumns:
+#          poi_id:
+#            referencedColumnName: id
+#            onDelete: CASCADE
+#        inverseJoinColumns:
+#          cecha_id:
+#            referencedColumnName: id
+#            onDelete: RESTRICT
+#      gedmo:
+#        - versioned
+#    tagi:
+#      targetEntity: Application\Sonata\ClassificationBundle\Entity\Tag
+#      inversedBy: poi
+#      cascade: ["all"]
+#      joinTable:
+#        name: poi_has_sonata_tags
+#        joinColumns:
+#          poi_id:
+#            referencedColumnName: id
+#            onDelete: CASCADE
+#        inverseJoinColumns:
+#          tag_id:
+#            referencedColumnName: id
+#            onDelete: CASCADE
+#      gedmo:
+#        - versioned
+#    wydarzenie:
+#      targetEntity: Backend\ArtykulyIwydarzeniaBundle\Entity\Wydarzenie
+#      mappedBy: organizatorzy
+#      gedmo:
+#        - versioned
+
+  oneToMany:
+#      kopie_robocze:
+#          targetEntity: Poi
+#          mappedBy: kopie_robocze_rodzic
+#          cascade: [persist]
+#          gedmo:
+#              - versioned
+      poi_media:
+          targetEntity: Backend\PoiBundle\Entity\PoiMedia
+          mappedBy: poi
+          cascade: ["all"]
+          orphanRemoval: true
+          orderBy:
+            position: ASC
+          gedmo:
+              - versioned
+#      zalacznik:
+#          targetEntity: Zalacznik
+#          mappedBy: poi
+#          cascade: ["all"]
+#          orphanRemoval: true
+#          orderBy:
+#            position: ASC
+#          gedmo:
+#              - versioned
+#      ulubione:
+#          targetEntity: Ulubione
+#          mappedBy: poi
+#          cascade: ["all"]
+#          orphanRemoval: true
+#          gedmo:
+#              - versioned
+#      poihaspoi_1:
+#          targetEntity: Backend\PoiBundle\Entity\Poihaspoi
+#          mappedBy: poi_1
+#          cascade: ["all"]
+#      poihaspoi_2:
+#          targetEntity: Backend\PoiBundle\Entity\Poihaspoi
+#          mappedBy: poi_2
+#          orphanRemoval: true
+#          cascade: ["all"]
+#          gedmo:
+#              - versioned
+      poi_category:
+          targetEntity: Backend\PoiBundle\Entity\PoiCategory
+          mappedBy: poi
+          cascade: ["all"]
+          orphanRemoval: true
+          gedmo:
+              - versioned
+#      poihascecha:
+#          targetEntity: Backend\PoiBundle\Entity\PoiHasCecha
+#          mappedBy: poi
+#          cascade: ["all"]
+#          orphanRemoval: true
+#          gedmo:
+#              - versioned
+#      datawydarzenia:
+#          targetEntity: Backend\ArtykulyIwydarzeniaBundle\Entity\DataWydarzenia
+#          mappedBy: miejscePoi
+#          cascade: ["all"]
+#          orphanRemoval: true
+#          gedmo:
+#              - versioned
+#      poihascomment:
+#          targetEntity: Backend\PoiBundle\Entity\PoiHasComment
+#          mappedBy: poi
+#          cascade: ["all"]
+#          orphanRemoval: true
+#          gedmo:
+#              - versioned
+      etapy_poi:
+          targetEntity: Backend\PoiBundle\Entity\Etap
+          mappedBy: poi
+          cascade: ["all"]
+          gedmo:
+              - versioned
+#      baner_poi:
+#          targetEntity: Backend\BaneryBundle\Entity\Baner
+#          mappedBy: poi
+#          cascade: ["all"]
+#          gedmo:
+#              - versioned
+#      artykulhaspoi:
+#          targetEntity: Backend\ArtykulyIwydarzeniaBundle\Entity\ArtykulHasPoi
+#          mappedBy: poi
+#          cascade: ["all"]
+#          gedmo:
+#              - versioned
+#      komentarze:
+#          targetEntity: Komentarz
+#          mappedBy: poi
+#          cascade: [persist]
+#          gedmo:
+#              - versioned
+#      ocena:
+#          targetEntity: Ocena
+#          mappedBy: poi
+#          cascade: ["all"]
+#          gedmo:
+#              - versioned
+      translations:
+          targetEntity: Backend\PoiBundle\Entity\PoiTranslation
+          mappedBy: object
+          cascade: [persist, remove]
+          gedmo:
+              - versioned
+#  oneToOne:
+#    warstwa:
+#      targetEntity: Backend\PoiBundle\Entity\Warstwa
+#      mappedBy: poi
+#      cascade: ["all"]
+
+

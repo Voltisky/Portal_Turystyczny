@@ -1,0 +1,35 @@
+Backend\PoiBundle\Entity\PoiCategory:
+  type: entity
+  table: poi_category
+  gedmo:
+    loggable: true
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    czyglowny:
+        type: boolean
+
+  manyToOne:
+      poi:
+          targetEntity: Backend\PoiBundle\Entity\Poi
+          inversedBy: poi_category
+          cascade: ["persist"]
+          joinColumns:
+              poi_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+          gedmo:
+              - versioned
+      category:
+          targetEntity: Application\Sonata\ClassificationBundle\Entity\Category
+          inversedBy: poi_category
+          cascade: ["persist"]
+          joinColumns:
+              obiektrodzaj_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+          gedmo:
+              - versioned

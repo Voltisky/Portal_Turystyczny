@@ -1,0 +1,3 @@
+#backend_poi_homepage:
+#    path:     /
+#    defaults: { _controller: BackendPoiBundle:Default:index }

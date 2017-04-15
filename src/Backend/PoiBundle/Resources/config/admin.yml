@@ -1,0 +1,60 @@
+services:
+    sonata.admin.poi:
+        class: Backend\PoiBundle\Admin\PoiAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "POI i Szlaki", label: "Poi" }
+        arguments:
+            - ~
+            - Backend\PoiBundle\Entity\Poi
+            - ~
+        calls:
+            - [ setTranslationDomain, [messages]]
+            - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ]]
+#            - [ setTemplates, [{base_list_field: BackendPoiBundle:List:base_list_field.html.twig}]]
+    sonata.admin.szlak:
+        class: Backend\PoiBundle\Admin\SzlakAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "POI i Szlaki", label: "Trasy i szlaki turystyczne" }
+        arguments:
+            - ~
+            - Backend\PoiBundle\Entity\Szlak
+            - ~
+        calls:
+            - [ setTranslationDomain, [messages]]
+            - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ]]
+#            - [ setTemplates, [{base_list_field: BackendPoiBundle:List:base_list_field.html.twig}]]
+    sonata.admin.poi_media:
+        class: Backend\PoiBundle\Admin\PoiMediaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Poi Media", group: "POI i Szlaki" }
+        arguments:
+            - ~
+            - Backend\PoiBundle\Entity\PoiMedia
+            - ~
+        calls:
+            - [ setTranslationDomain, [messages]]
+            - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ]]
+    sonata.admin.poi_category:
+        class: Backend\PoiBundle\Admin\PoiCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Kategoria POI" }
+        arguments:
+            - ~
+            - Backend\PoiBundle\Entity\PoiCategory
+            - ~
+        calls:
+            - [ setTranslationDomain, [messages]]
+            - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ]]
+#            - [ setTemplates, [{base_list_field: BackendPoiBundle:List:base_list_field.html.twig}]]
+    sonata.admin.etap:
+        class: Backend\PoiBundle\Admin\EtapAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Etapy" }
+        arguments:
+            - ~
+            - Backend\PoiBundle\Entity\Etap
+            - ~
+        calls:
+            - [ setTranslationDomain, [messages]]
+            - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ]]
+#            - [ setTemplates, [{base_list_field: BackendPoiBundle:List:base_list_field.html.twig}]]

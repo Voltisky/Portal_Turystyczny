@@ -1,0 +1,17 @@
+{% block imageFile_widget %}
+    {% spaceless %}
+	<table class='imageFile'>
+	    <tr>
+		<td>
+		    <a href="/admin/sonata/media/media/{{object.id}}/edit?context=default" target="new">
+			{% if path != "" %}
+			    <img src="{{ path }}" />
+			{% else %}
+			    Brak miniatury
+			{% endif %}
+		    </a>
+		</td>
+	    </tr>
+	</table>
+    {% endspaceless %}
+{% endblock %}

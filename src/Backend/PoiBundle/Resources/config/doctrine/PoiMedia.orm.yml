@@ -1,0 +1,37 @@
+Backend\PoiBundle\Entity\PoiMedia:
+  type: entity
+  table: poi_media
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    position:
+        type: integer
+        nullable: true
+    enabled:
+        type: boolean
+    czywiodaca:
+        type: boolean
+    status:
+        type: boolean
+        nullable: true
+
+  manyToOne:
+      poi:
+          targetEntity: Backend\PoiBundle\Entity\Poi
+          inversedBy: poi_media
+          cascade: [persist]
+          joinColumns:
+              poi_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+      media:
+          targetEntity: Application\Sonata\MediaBundle\Entity\Media
+          inversedBy: poi_media
+          cascade: ["persist"]
+          joinColumns:
+              media_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE

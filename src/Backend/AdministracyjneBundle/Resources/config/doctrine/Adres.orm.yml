@@ -1,0 +1,105 @@
+Backend\AdministracyjneBundle\Entity\Adres:
+    type: entity
+    table: adres
+    repositoryClass: Backend\AdministracyjneBundle\Entity\AdresRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        sym:
+            type: integer
+            nullable: true
+        sym_pod:
+            type: integer
+            nullable: true
+        teryt:
+            type: integer
+            nullable: true
+        woj:
+            type: integer
+            nullable: true
+        pow:
+            type: integer
+            nullable: true
+        gmi:
+            type: integer
+            nullable: true
+        nazwa_woj:
+            type: string
+            length: 56
+            nullable: true
+        nazwa_pow:
+            type: string
+            length: 56
+            nullable: true
+        nazwa_gmi:
+            type: string
+            length: 56
+            nullable: true
+        nazwa_dod:
+            type: string
+            length: 56
+            nullable: true
+        rodzaj_gmi:
+            type: integer
+            nullable: true
+        rm:
+            type: integer
+            nullable: true
+        mz:
+            type: boolean
+            nullable: true
+        nazwa:
+            type: string
+            length: 56
+            nullable: true
+        stan_na:
+            type: datetime
+            nullable: true
+        dotnetid:
+            type: integer
+            nullable: true
+    oneToMany:
+        adresy_msc:
+            targetEntity: Adres
+            mappedBy: miejscowosc
+            gedmo:
+                - versioned
+        adresy_poczta:
+            targetEntity: Adres
+            mappedBy: poczta
+            gedmo:
+                - versioned
+    indexes:
+        adres_teryt_sym_idx:
+            columns: sym
+        adres_teryt_sym_pod_idx:
+            columns: sym_pod
+        adres_teryt_teryt_idx:
+            columns: teryt
+        adres_teryt_woj_idx:
+            columns: woj
+        adres_teryt_pow_idx:
+            columns: pow
+        adres_teryt_gmi_idx:
+            columns: gmi
+        adres_teryt_nazwa_woj_idx:
+            columns: nazwa_woj
+        adres_teryt_nazwa_pow_idx:
+            columns: nazwa_pow
+        adres_teryt_nazwa_gmi_idx:
+            columns: nazwa_gmi
+        adres_teryt_nazwa_dod_idx:
+            columns: nazwa_dod
+        adres_teryt_rodzaj_gmi_idx:
+            columns: rodzaj_gmi
+        adres_teryt_rm_idx:
+            columns: rm
+        adres_teryt_mz_idx:
+            columns: mz
+        adres_teryt_nazwa_idx:
+            columns: nazwa
+        adres_teryt_stan_na_idx:
+            columns: stan_na

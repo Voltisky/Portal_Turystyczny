@@ -1,0 +1,4 @@
+services:
+#    backend_administracyjne.example:
+#        class: Backend\AdministracyjneBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

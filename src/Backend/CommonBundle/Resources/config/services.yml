@@ -1,0 +1,8 @@
+services:
+    helper.alias.generator:
+        class: Backend\CommonBundle\Helper\AliasGeneratorHelper
+        arguments: []
+    form.type.imageFile:
+        class: Backend\CommonBundle\Form\ImageFileType
+        tags:
+            - { name: form.type, alias: imageFile }

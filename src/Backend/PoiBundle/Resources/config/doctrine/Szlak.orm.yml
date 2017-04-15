@@ -1,0 +1,59 @@
+Backend\PoiBundle\Entity\Szlak:
+  type: entity
+  table: sf_szlak
+  fields:
+    dlugosc:
+      type: integer
+      nullable: true
+    trudnosc:
+      type: integer
+      nullable: true
+    czaspodrozy:
+      type: float
+      nullable: true
+    u92_x_s:
+      type: float
+      nullable: true
+    u92_y_s:
+      type: float
+      nullable: true
+    wgs_x_s:
+      type: float
+      nullable: true
+    wgs_y_s:
+      type: float
+      nullable: true
+    u92_x_k:
+      type: float
+      nullable: true
+    u92_y_k:
+      type: float
+      nullable: true
+    wgs_x_k:
+      type: float
+      nullable: true
+    wgs_y_k:
+      type: float
+      nullable: true
+    czy_wycieczka:
+      type: boolean
+      nullable: true
+    czy_udostepniona:
+      type: boolean
+      nullable: true
+    geometria:
+      type: text
+      nullable: true
+      gedmo:
+        - versioned
+
+  oneToMany:
+      etapy_szlak:
+          targetEntity: Backend\PoiBundle\Entity\Etap
+          mappedBy: szlak
+          cascade: ["all"]
+          orphanRemoval: true
+          orderBy:
+            position: ASC
+
+  lifecycleCallbacks: {  }
