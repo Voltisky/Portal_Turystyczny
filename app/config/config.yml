@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: @BackendPoiBundle/Resources/config/admin.yml }
+    - { resource: @ApplicationSonataUserBundle/Resources/config/admin.xml }
     - { resource: "@BackendCommonBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
