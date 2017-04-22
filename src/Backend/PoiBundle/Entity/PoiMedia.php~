@@ -5,8 +5,8 @@ namespace Backend\PoiBundle\Entity;
 /**
  * PoiMedia
  */
-class PoiMedia
-{
+class PoiMedia {
+
     /**
      * @var integer
      */
@@ -42,15 +42,13 @@ class PoiMedia
      */
     private $media;
 
-
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
-        return $this->id;
+    public function getId() {
+	return $this->id;
     }
 
     /**
@@ -60,11 +58,10 @@ class PoiMedia
      *
      * @return PoiMedia
      */
-    public function setPosition($position)
-    {
-        $this->position = $position;
+    public function setPosition($position) {
+	$this->position = $position;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -72,9 +69,8 @@ class PoiMedia
      *
      * @return integer
      */
-    public function getPosition()
-    {
-        return $this->position;
+    public function getPosition() {
+	return $this->position;
     }
 
     /**
@@ -84,11 +80,10 @@ class PoiMedia
      *
      * @return PoiMedia
      */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
+    public function setEnabled($enabled) {
+	$this->enabled = $enabled;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -96,9 +91,8 @@ class PoiMedia
      *
      * @return boolean
      */
-    public function getEnabled()
-    {
-        return $this->enabled;
+    public function getEnabled() {
+	return $this->enabled;
     }
 
     /**
@@ -108,11 +102,10 @@ class PoiMedia
      *
      * @return PoiMedia
      */
-    public function setCzywiodaca($czywiodaca)
-    {
-        $this->czywiodaca = $czywiodaca;
+    public function setCzywiodaca($czywiodaca) {
+	$this->czywiodaca = $czywiodaca;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -120,9 +113,8 @@ class PoiMedia
      *
      * @return boolean
      */
-    public function getCzywiodaca()
-    {
-        return $this->czywiodaca;
+    public function getCzywiodaca() {
+	return $this->czywiodaca;
     }
 
     /**
@@ -132,11 +124,10 @@ class PoiMedia
      *
      * @return PoiMedia
      */
-    public function setStatus($status)
-    {
-        $this->status = $status;
+    public function setStatus($status) {
+	$this->status = $status;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -144,9 +135,8 @@ class PoiMedia
      *
      * @return boolean
      */
-    public function getStatus()
-    {
-        return $this->status;
+    public function getStatus() {
+	return $this->status;
     }
 
     /**
@@ -156,11 +146,10 @@ class PoiMedia
      *
      * @return PoiMedia
      */
-    public function setPoi(\Backend\PoiBundle\Entity\Poi $poi = null)
-    {
-        $this->poi = $poi;
+    public function setPoi(\Backend\PoiBundle\Entity\Poi $poi = null) {
+	$this->poi = $poi;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -168,9 +157,8 @@ class PoiMedia
      *
      * @return \Backend\PoiBundle\Entity\Poi
      */
-    public function getPoi()
-    {
-        return $this->poi;
+    public function getPoi() {
+	return $this->poi;
     }
 
     /**
@@ -180,11 +168,10 @@ class PoiMedia
      *
      * @return PoiMedia
      */
-    public function setMedia(\Application\Sonata\MediaBundle\Entity\Media $media = null)
-    {
-        $this->media = $media;
+    public function setMedia(\Application\Sonata\MediaBundle\Entity\Media $media = null) {
+	$this->media = $media;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -192,8 +179,18 @@ class PoiMedia
      *
      * @return \Application\Sonata\MediaBundle\Entity\Media
      */
-    public function getMedia()
-    {
-        return $this->media;
+    public function getMedia() {
+	return $this->media;
     }
+
+    private $miniatura;
+
+    public function getMiniatura() {
+	return 'Brak miniatury';
+    }
+
+    public function setMiniatura($v) {
+	$this->miniatura = $v;
+    }
+
 }

@@ -183,8 +183,14 @@ class PoiMedia {
 	return $this->media;
     }
 
+    private $miniatura;
+
     public function getMiniatura() {
 	return 'Brak miniatury';
+    }
+
+    public function setMiniatura($v) {
+	$this->miniatura = $v;
     }
 
 }

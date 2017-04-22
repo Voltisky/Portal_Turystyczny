@@ -1,3 +1,4 @@
+
 backend_common:
     resource: "@BackendCommonBundle/Resources/config/routing.yml"
     prefix:   /
@@ -47,7 +48,7 @@ sonata_user_admin_security:
 sonata_user_admin_resetting:
     resource: '@SonataUserBundle/Resources/config/routing/admin_resetting.xml'
     prefix: /admin/resetting
-    
+
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
     prefix: /media/gallery

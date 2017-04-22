@@ -44,9 +44,11 @@ class AppKernel extends Kernel {
 	    new Sonata\FormatterBundle\SonataFormatterBundle(),
 	    new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 	    new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+	    new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 	);
 
-	if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
+	if (in_array($this->getEnvironment(), array('dev', 'test'), true))
+	{
 	    $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
 	    $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
 	    $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();

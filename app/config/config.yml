@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: @BackendPoiBundle/Resources/config/admin.yml }
+    - { resource: @BackendAdministracyjneBundle/Resources/config/admin.yml }
     - { resource: @ApplicationSonataUserBundle/Resources/config/admin.xml }
     - { resource: "@BackendCommonBundle/Resources/config/services.yml" }
 
@@ -222,3 +223,9 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~

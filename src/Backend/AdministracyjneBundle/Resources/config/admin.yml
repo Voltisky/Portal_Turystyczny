@@ -1,0 +1,11 @@
+services:
+    sonata.admin.adres:
+        class: Backend\AdministracyjneBundle\Admin\AdresAdmin
+        tags: [{ name: sonata.admin, manager_type: orm, group: "Administracja", label: "Adresy", label_translator_strategy: "sonata.admin.label.strategy.underscore" }]
+        arguments:
+            - ~
+            - Backend\AdministracyjneBundle\Entity\Adres
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendAdministracyjneBundle]]
+            - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ] ]

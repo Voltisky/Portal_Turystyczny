@@ -345,20 +345,4 @@ class Etap {
 	return $this->media;
     }
 
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function rodzajRelacjiPre()
-    {
-        // Add your code here
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function rodzajRelacjiPost()
-    {
-        // Add your code here
-    }
 }

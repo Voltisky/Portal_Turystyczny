@@ -94,7 +94,7 @@ class PoiAdmin extends Admin {
 		->add('www', 'text', array('required' => false))
 		->end()
 		->with('Adres', array("class" => "col-md-8"))
-		->add('adres')
+		->add('adres', 'sonata_type_model_list')
 		->end()
 		->with('Geolokalizacja')
 		->add('wgs_x', 'text', array('required' => false))

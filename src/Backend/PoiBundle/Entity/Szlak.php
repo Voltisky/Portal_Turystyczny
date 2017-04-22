@@ -406,7 +406,6 @@ class Szlak extends Poi {
      */
     private $geometria;
 
-
     /**
      * Set geometria
      *
@@ -414,11 +413,10 @@ class Szlak extends Poi {
      *
      * @return Szlak
      */
-    public function setGeometria(\geometry $geometria)
-    {
-        $this->geometria = $geometria;
+    public function setGeometria($geometria) {
+	$this->geometria = $geometria;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -426,8 +424,8 @@ class Szlak extends Poi {
      *
      * @return \geometry
      */
-    public function getGeometria()
-    {
-        return $this->geometria;
+    public function getGeometria() {
+	return $this->geometria;
     }
+
 }
