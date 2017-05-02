@@ -1,0 +1,50 @@
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets '@base_map_css' %}
+    <link href="{{ asset_url }}" rel="stylesheet"></script>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@base_map_js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+	var TOKEN = "{{admin.uniqId}}";
+	$(document).ready(function ()
+	{
+	    $(".geolokalizacja").append($("<div>", {id: "map", style: "height: 300px"}));
+	    var map = new Map();
+	    map.initialize("map", {
+		onMapClick: function (coordinate, coordinateWgs)
+		{
+		    $("#" + TOKEN + "_wgs_x").val(coordinateWgs[0]);
+		    $("#" + TOKEN + "_wgs_y").val(coordinateWgs[1]);
+		    $("#" + TOKEN + "_wgs_x").trigger("change");
+		}
+	    });
+
+	    $("#" + TOKEN + "_wgs_x, #" + TOKEN + "_wgs_y").on("change", function ()
+	    {
+		var x = $("#" + TOKEN + "_wgs_x").val();
+		var y = $("#" + TOKEN + "_wgs_y").val();
+		if (x && y)
+		{
+		    var coordinate = map.getMapCoordinate([parseFloat(x), parseFloat(y)]);
+
+		    map.layers.featureLayer.getSource().clear();
+		    map.layers.featureLayer.getSource().addFeature(new ol.Feature({
+			type: 'icon',
+			geometry: new ol.geom.Point(coordinate)
+		    }));
+		}
+	    });
+
+	    $("#" + TOKEN + "_wgs_x, #" + TOKEN + "_wgs_y").trigger("change");
+	});
+    </script>
+{% endblock %}

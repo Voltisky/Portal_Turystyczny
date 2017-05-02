@@ -62,16 +62,10 @@ Backend\AdministracyjneBundle\Entity\Adres:
             type: integer
             nullable: true
     oneToMany:
-        adresy_msc:
-            targetEntity: Adres
-            mappedBy: miejscowosc
-            gedmo:
-                - versioned
-        adresy_poczta:
-            targetEntity: Adres
-            mappedBy: poczta
-            gedmo:
-                - versioned
+        poi:
+          targetEntity: Backend\PoiBundle\Entity\Poi
+          mappedBy: adres
+          cascade: ["all"]
     indexes:
         adres_teryt_sym_idx:
             columns: sym

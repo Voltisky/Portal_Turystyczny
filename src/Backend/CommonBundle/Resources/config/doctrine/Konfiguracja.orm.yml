@@ -1,0 +1,56 @@
+Backend\CommonBundle\Entity\Konfiguracja:
+  type: entity
+  table: konfiguracja  
+  gedmo:
+    translation:
+      locale: lang
+      entity: Backend\CommonBundle\Entity\KonfiguracjaTranslation
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    nazwa:
+      type: string
+      length: 255
+      nullable: false
+      gedmo:
+        - translatable
+    opis:
+      type: text
+      nullable: false
+      gedmo:
+        - translatable
+    main:
+      type: boolean
+      gedmo:
+        - translatable
+        
+  manyToOne:
+      logo:
+          targetEntity: Application\Sonata\MediaBundle\Entity\Media
+          inversedBy: konfiguracja_logo
+          cascade: ["persist"]
+          joinColumns:
+              logo_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+      default_image:
+          targetEntity: Application\Sonata\MediaBundle\Entity\Media
+          inversedBy: konfiguracja_default_image
+          cascade: ["persist"]
+          joinColumns:
+              default_image_id:
+                  referencedColumnName: id
+                  onDelete: CASCADE
+                  
+  oneToMany:
+      translations:
+          targetEntity: KonfiguracjaTranslation
+          mappedBy: object
+          cascade: [persist, remove]
+          
+  lifecycleCallbacks:
+      prePersist: []
+      preUpdate: []

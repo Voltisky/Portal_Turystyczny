@@ -1,0 +1,7 @@
+frontend:
+    poi:
+        latest: Aktualności
+        local_informations: Informacje lokalne
+        read_more: Czytaj więcej
+    map:
+        title: Mapa

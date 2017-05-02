@@ -1,0 +1,60 @@
+tree_catalog_title: Drzewo katalogów
+breadcrumb:
+    link_category_list: Lista Kategorii
+    link_category_tree: Drzewo Kategorii
+    link_category_create: Tworzenie kategorii
+    link_context_list: Lista kontekstów
+    link_collection_list: Lista kolekcji
+    link_tag_list: Lista tagów
+classification:
+    tree_mode: Tryb drzewiasty
+    list_mode: Tryb listy
+sonata_categories: Kategorie
+label_categories: Kategorie
+label_tags: Tagi
+label_collections: Kolekcje
+label_contexts: Konteksty
+form:
+    label_name: Nazwa
+    label_description: Opis
+    label_parent: Rodzic
+    label_media: Media
+    label_enabled: Odblokowany
+    label_position: Pozycja
+    label_context: Kontekst
+    label_slug: Slug
+    label_id: ID
+    label_created_at: Utworzono
+    label_updated_at: Zaktualizowano
+list:
+    label_name: Nazwa
+    label_description: Opis
+    label_parent: Rodzic
+    label_media: Media
+    label_enabled: Odblokowany
+    label_position: Pozycja
+    label_context: Kontekst
+    label_slug: Slug
+    label_id: ID
+    label_created_at: Utworzono
+    label_updated_at: Zaktualizowano
+filter:
+    label_name: Nazwa
+    label_description: Opis
+    label_parent: Rodzic
+    label_media: Media
+    label_enabled: Odblokowany
+    label_position: Pozycja
+    label_context: Kontekst
+    label_slug: Slug
+    label_name: Nazwa
+    label_description: Opis
+    label_parent: Rodzic
+    label_media: Media
+    label_enabled: Odblokowany
+    label_position: Pozycja
+    label_context: Kontekst
+    label_slug: Slug
+    label_id: ID
+    label_created_at: Utworzono
+    label_updated_at: Zaktualizowano

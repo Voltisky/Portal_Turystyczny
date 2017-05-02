@@ -1,3 +1,16 @@
+frontend_poi:
+    resource: "@FrontendPoiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+frontend_main:
+    resource: "@FrontendMainBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+frontend_mapa:
+    resource: "@FrontendMapaBundle/Resources/config/routing.yml"
+    prefix:   /
+
 
 backend_common:
     resource: "@BackendCommonBundle/Resources/config/routing.yml"

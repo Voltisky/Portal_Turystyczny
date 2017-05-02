@@ -1,0 +1,58 @@
+breadcrumb:
+    link_poi_list: Lista POI
+list:
+    label_id: Id
+    label_nazwa: Nazwa
+    label_status_poi: Status
+    label_updated_at: Data aktualizacji
+    label_user: Użytkownik
+    label__action: Akcje
+    label_media_id: Id
+    label_media: Media
+    label_media_author_name: Autor
+    label_media_enabled: Odblokowane
+form:
+    label_nazwa: Nazwa
+    label_poi_category: Kategorie
+    label_category: Kategoria
+    label_czyglowny: "Glowny"
+    label_status_poi: Status
+    label_user: Użytkownik
+    label_wprowadzajacy_nazwa: Nazwa wprowadzającego
+    label_wprowadzajacy_kontakt: Kontakt do wprowadzającego
+    label_zrodlo: Źródlo
+    label_nrtel: Numer telefonu
+    label_nrfax: Numer faksu
+    label_email: Email
+    label_www: WWW
+    label_adres: Adres
+    label_wgs_x: Wsp. X
+    label_wgs_y: Wsp. Y
+    label_polozenie: Krótki opis
+    label_opis: Opis
+    label_sezonowosc: Sezonowość
+    label_wwwdod_nazwa: WWW dodatkowy
+    label_wwwdod: WWW
+    label_wwwdod_opis: WWW Opis
+    label_dladzieci: Dla dzieci
+    label_dlaniepelnosprawnych: Dla niepełnosprawnych
+    label_wstep: Wstęp
+    label_poi_media: Media
+    label_media: Media
+    label_enabled: Dostępny
+    label_czywiodaca: Wiodące
+    label_position: Pozycja
+    label_status: Status
+    label_translations: Tłumaczenia
+    label_dlugosc: Długość
+    label_etapy_szlak: Etapy
+    label_rodzaj: Rodzaj
+    label_powiazanie: Powiązanie
+    label_poi: POI
+filter:
+    label_id: Id
+    label_nazwa: Nazwa
+    label_ulica: Ulica
+    label_nrdomu: Numer domu
+    label_status_poi: Status
+    label_poi_category_category: Kategorie

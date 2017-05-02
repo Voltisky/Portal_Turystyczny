@@ -1,0 +1,48 @@
+{% block stylesheets %}
+    {% stylesheets '@base_map_css' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block javascripts %}
+    {% javascripts '@base_map_js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+<div class=" portal-mapa">
+    {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.map.title"|trans} %}
+    <div id="frontend-map">
+    </div>
+
+    <script type="text/javascript">
+	$(document).ready(function ()
+	{
+	    var items = JSON.parse('{{items|raw}}');
+	    var map = new Map();
+	    map.initialize("frontend-map");
+
+	    // Mouse scroll off
+	    map.mapObject.getInteractions().forEach(function (interaction)
+	    {
+		if (interaction instanceof ol.interaction.MouseWheelZoom)
+		{
+		    interaction.setActive(false);
+		}
+	    }, this);
+
+	    if (items && items.length > 0)
+	    {
+		for (var i = 0; i < items.length; i++)
+		{
+		    var item = items[i];
+		    var coordinate = map.getMapCoordinate([parseFloat(item.wgs_x), parseFloat(item.wgs_y)]);
+		    map.layers.featureLayer.getSource().addFeature(new ol.Feature({
+			type: 'icon',
+			geometry: new ol.geom.Point(coordinate)
+		    }));
+
+		}
+	    }
+	});
+    </script>
+</div>

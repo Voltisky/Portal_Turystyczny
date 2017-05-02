@@ -5,8 +5,8 @@ namespace Backend\AdministracyjneBundle\Entity;
 /**
  * Adres
  */
-class Adres
-{
+class Adres {
+
     /**
      * @var integer
      */
@@ -105,10 +105,9 @@ class Adres
     /**
      * Constructor
      */
-    public function __construct()
-    {
-        $this->adresy_msc = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->adresy_poczta = new \Doctrine\Common\Collections\ArrayCollection();
+    public function __construct() {
+	$this->adresy_msc = new \Doctrine\Common\Collections\ArrayCollection();
+	$this->adresy_poczta = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -116,9 +115,8 @@ class Adres
      *
      * @return integer
      */
-    public function getId()
-    {
-        return $this->id;
+    public function getId() {
+	return $this->id;
     }
 
     /**
@@ -128,11 +126,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setSym($sym)
-    {
-        $this->sym = $sym;
+    public function setSym($sym) {
+	$this->sym = $sym;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -140,9 +137,8 @@ class Adres
      *
      * @return integer
      */
-    public function getSym()
-    {
-        return $this->sym;
+    public function getSym() {
+	return $this->sym;
     }
 
     /**
@@ -152,11 +148,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setSymPod($symPod)
-    {
-        $this->sym_pod = $symPod;
+    public function setSymPod($symPod) {
+	$this->sym_pod = $symPod;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -164,9 +159,8 @@ class Adres
      *
      * @return integer
      */
-    public function getSymPod()
-    {
-        return $this->sym_pod;
+    public function getSymPod() {
+	return $this->sym_pod;
     }
 
     /**
@@ -176,11 +170,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setTeryt($teryt)
-    {
-        $this->teryt = $teryt;
+    public function setTeryt($teryt) {
+	$this->teryt = $teryt;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -188,9 +181,8 @@ class Adres
      *
      * @return integer
      */
-    public function getTeryt()
-    {
-        return $this->teryt;
+    public function getTeryt() {
+	return $this->teryt;
     }
 
     /**
@@ -200,11 +192,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setWoj($woj)
-    {
-        $this->woj = $woj;
+    public function setWoj($woj) {
+	$this->woj = $woj;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -212,9 +203,8 @@ class Adres
      *
      * @return integer
      */
-    public function getWoj()
-    {
-        return $this->woj;
+    public function getWoj() {
+	return $this->woj;
     }
 
     /**
@@ -224,11 +214,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setPow($pow)
-    {
-        $this->pow = $pow;
+    public function setPow($pow) {
+	$this->pow = $pow;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -236,9 +225,8 @@ class Adres
      *
      * @return integer
      */
-    public function getPow()
-    {
-        return $this->pow;
+    public function getPow() {
+	return $this->pow;
     }
 
     /**
@@ -248,11 +236,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setGmi($gmi)
-    {
-        $this->gmi = $gmi;
+    public function setGmi($gmi) {
+	$this->gmi = $gmi;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -260,9 +247,8 @@ class Adres
      *
      * @return integer
      */
-    public function getGmi()
-    {
-        return $this->gmi;
+    public function getGmi() {
+	return $this->gmi;
     }
 
     /**
@@ -272,11 +258,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setNazwaWoj($nazwaWoj)
-    {
-        $this->nazwa_woj = $nazwaWoj;
+    public function setNazwaWoj($nazwaWoj) {
+	$this->nazwa_woj = $nazwaWoj;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -284,9 +269,8 @@ class Adres
      *
      * @return string
      */
-    public function getNazwaWoj()
-    {
-        return $this->nazwa_woj;
+    public function getNazwaWoj() {
+	return $this->nazwa_woj;
     }
 
     /**
@@ -296,11 +280,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setNazwaPow($nazwaPow)
-    {
-        $this->nazwa_pow = $nazwaPow;
+    public function setNazwaPow($nazwaPow) {
+	$this->nazwa_pow = $nazwaPow;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -308,9 +291,8 @@ class Adres
      *
      * @return string
      */
-    public function getNazwaPow()
-    {
-        return $this->nazwa_pow;
+    public function getNazwaPow() {
+	return $this->nazwa_pow;
     }
 
     /**
@@ -320,11 +302,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setNazwaGmi($nazwaGmi)
-    {
-        $this->nazwa_gmi = $nazwaGmi;
+    public function setNazwaGmi($nazwaGmi) {
+	$this->nazwa_gmi = $nazwaGmi;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -332,9 +313,8 @@ class Adres
      *
      * @return string
      */
-    public function getNazwaGmi()
-    {
-        return $this->nazwa_gmi;
+    public function getNazwaGmi() {
+	return $this->nazwa_gmi;
     }
 
     /**
@@ -344,11 +324,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setNazwaDod($nazwaDod)
-    {
-        $this->nazwa_dod = $nazwaDod;
+    public function setNazwaDod($nazwaDod) {
+	$this->nazwa_dod = $nazwaDod;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -356,9 +335,8 @@ class Adres
      *
      * @return string
      */
-    public function getNazwaDod()
-    {
-        return $this->nazwa_dod;
+    public function getNazwaDod() {
+	return $this->nazwa_dod;
     }
 
     /**
@@ -368,11 +346,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setRodzajGmi($rodzajGmi)
-    {
-        $this->rodzaj_gmi = $rodzajGmi;
+    public function setRodzajGmi($rodzajGmi) {
+	$this->rodzaj_gmi = $rodzajGmi;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -380,9 +357,8 @@ class Adres
      *
      * @return integer
      */
-    public function getRodzajGmi()
-    {
-        return $this->rodzaj_gmi;
+    public function getRodzajGmi() {
+	return $this->rodzaj_gmi;
     }
 
     /**
@@ -392,11 +368,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setRm($rm)
-    {
-        $this->rm = $rm;
+    public function setRm($rm) {
+	$this->rm = $rm;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -404,9 +379,8 @@ class Adres
      *
      * @return integer
      */
-    public function getRm()
-    {
-        return $this->rm;
+    public function getRm() {
+	return $this->rm;
     }
 
     /**
@@ -416,11 +390,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setMz($mz)
-    {
-        $this->mz = $mz;
+    public function setMz($mz) {
+	$this->mz = $mz;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -428,9 +401,8 @@ class Adres
      *
      * @return boolean
      */
-    public function getMz()
-    {
-        return $this->mz;
+    public function getMz() {
+	return $this->mz;
     }
 
     /**
@@ -440,11 +412,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setNazwa($nazwa)
-    {
-        $this->nazwa = $nazwa;
+    public function setNazwa($nazwa) {
+	$this->nazwa = $nazwa;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -452,9 +423,8 @@ class Adres
      *
      * @return string
      */
-    public function getNazwa()
-    {
-        return $this->nazwa;
+    public function getNazwa() {
+	return $this->nazwa;
     }
 
     /**
@@ -464,11 +434,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setStanNa($stanNa)
-    {
-        $this->stan_na = $stanNa;
+    public function setStanNa($stanNa) {
+	$this->stan_na = $stanNa;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -476,9 +445,8 @@ class Adres
      *
      * @return \DateTime
      */
-    public function getStanNa()
-    {
-        return $this->stan_na;
+    public function getStanNa() {
+	return $this->stan_na;
     }
 
     /**
@@ -488,11 +456,10 @@ class Adres
      *
      * @return Adres
      */
-    public function setDotnetid($dotnetid)
-    {
-        $this->dotnetid = $dotnetid;
+    public function setDotnetid($dotnetid) {
+	$this->dotnetid = $dotnetid;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -500,9 +467,8 @@ class Adres
      *
      * @return integer
      */
-    public function getDotnetid()
-    {
-        return $this->dotnetid;
+    public function getDotnetid() {
+	return $this->dotnetid;
     }
 
     /**
@@ -512,11 +478,10 @@ class Adres
      *
      * @return Adres
      */
-    public function addAdresyMsc(\Backend\AdministracyjneBundle\Entity\Adres $adresyMsc)
-    {
-        $this->adresy_msc[] = $adresyMsc;
+    public function addAdresyMsc(\Backend\AdministracyjneBundle\Entity\Adres $adresyMsc) {
+	$this->adresy_msc[] = $adresyMsc;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -524,9 +489,8 @@ class Adres
      *
      * @param \Backend\AdministracyjneBundle\Entity\Adres $adresyMsc
      */
-    public function removeAdresyMsc(\Backend\AdministracyjneBundle\Entity\Adres $adresyMsc)
-    {
-        $this->adresy_msc->removeElement($adresyMsc);
+    public function removeAdresyMsc(\Backend\AdministracyjneBundle\Entity\Adres $adresyMsc) {
+	$this->adresy_msc->removeElement($adresyMsc);
     }
 
     /**
@@ -534,9 +498,8 @@ class Adres
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAdresyMsc()
-    {
-        return $this->adresy_msc;
+    public function getAdresyMsc() {
+	return $this->adresy_msc;
     }
 
     /**
@@ -546,11 +509,10 @@ class Adres
      *
      * @return Adres
      */
-    public function addAdresyPocztum(\Backend\AdministracyjneBundle\Entity\Adres $adresyPocztum)
-    {
-        $this->adresy_poczta[] = $adresyPocztum;
+    public function addAdresyPocztum(\Backend\AdministracyjneBundle\Entity\Adres $adresyPocztum) {
+	$this->adresy_poczta[] = $adresyPocztum;
 
-        return $this;
+	return $this;
     }
 
     /**
@@ -558,9 +520,8 @@ class Adres
      *
      * @param \Backend\AdministracyjneBundle\Entity\Adres $adresyPocztum
      */
-    public function removeAdresyPocztum(\Backend\AdministracyjneBundle\Entity\Adres $adresyPocztum)
-    {
-        $this->adresy_poczta->removeElement($adresyPocztum);
+    public function removeAdresyPocztum(\Backend\AdministracyjneBundle\Entity\Adres $adresyPocztum) {
+	$this->adresy_poczta->removeElement($adresyPocztum);
     }
 
     /**
@@ -568,8 +529,48 @@ class Adres
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAdresyPoczta()
-    {
-        return $this->adresy_poczta;
+    public function getAdresyPoczta() {
+	return $this->adresy_poczta;
     }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poi;
+
+    /**
+     * Add poi
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poi
+     *
+     * @return Adres
+     */
+    public function addPoi(\Backend\PoiBundle\Entity\Poi $poi) {
+	$this->poi[] = $poi;
+
+	return $this;
+    }
+
+    /**
+     * Remove poi
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poi
+     */
+    public function removePoi(\Backend\PoiBundle\Entity\Poi $poi) {
+	$this->poi->removeElement($poi);
+    }
+
+    /**
+     * Get poi
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPoi() {
+	return $this->poi;
+    }
+
+    public function __toString() {
+	return sprintf("%s, gm. %s, pow. %s", $this->getNazwa(), $this->getNazwaGmi(), $this->getNazwaPow());
+    }
+
 }

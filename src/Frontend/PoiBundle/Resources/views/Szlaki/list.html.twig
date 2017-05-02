@@ -1,0 +1,21 @@
+{% extends 'FrontendMainBundle:Main:page.html.twig' %}
+
+{% block content %}
+    {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.szlaki.title"|trans} %}
+
+    <div class="mdl-grid">
+        {% for item in items %}
+            {% include "FrontendPoiBundle:Poi:poi_card.html.twig" with {'item': item} %}
+        {% endfor %}
+    </div>
+
+    {{ render(controller(
+        'FrontendPoiBundle:Default:getLatestPoi',
+        { 'maxItems': 3 }
+    )) }}
+
+
+    {{ render(controller(
+        'FrontendPoiBundle:Default:getLocalInformations'
+    )) }}
+{% endblock %}

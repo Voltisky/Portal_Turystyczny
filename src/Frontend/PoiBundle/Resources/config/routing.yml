@@ -1,0 +1,7 @@
+frontend_poi_homepage:
+    path:     /test22
+    defaults: { _controller: FrontendPoiBundle:Default:getLatestPoi }
+    
+frontend_poi_szlaki:
+    path:     /szlaki
+    defaults: { _controller: FrontendPoiBundle:Szlaki:szlaki }

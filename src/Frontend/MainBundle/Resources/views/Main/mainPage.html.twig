@@ -1,0 +1,18 @@
+{% extends 'FrontendMainBundle:Main:page.html.twig' %}
+
+{% block content %}
+    {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.main.opis"|trans} %}
+    <div class="row">
+        {{konfiguracja.opis|raw}}
+    </div>
+    
+    {{ render(controller(
+        'FrontendPoiBundle:Default:getLatestPoi',
+        { 'maxItems': 3 }
+    )) }}
+    
+    
+    {{ render(controller(
+        'FrontendPoiBundle:Default:getLocalInformations'
+    )) }}
+{% endblock %}

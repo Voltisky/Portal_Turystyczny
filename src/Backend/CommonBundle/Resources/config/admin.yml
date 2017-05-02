@@ -1,0 +1,12 @@
+services:
+    sonata.admin.konfiguracja:
+        class: Backend\CommonBundle\Admin\KonfiguracjaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Konfiguracja", label: "Konfiguracja" }
+        arguments:
+            - ~
+            - Backend\CommonBundle\Entity\Konfiguracja
+            - ~
+        calls:
+            - [ setTranslationDomain, [messages]]
+            - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ]]

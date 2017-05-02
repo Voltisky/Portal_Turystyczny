@@ -45,7 +45,10 @@ class AppKernel extends Kernel {
 	    new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 	    new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 	    new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-	);
+            new Frontend\MainBundle\FrontendMainBundle(),
+            new Frontend\MapaBundle\FrontendMapaBundle(),
+            new Frontend\PoiBundle\FrontendPoiBundle(),
+        );
 
 	if (in_array($this->getEnvironment(), array('dev', 'test'), true))
 	{

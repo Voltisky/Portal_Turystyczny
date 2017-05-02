@@ -1,0 +1,33 @@
+{% extends 'FrontendMainBundle:Layout:layout.html.twig' %}
+
+{% block stylesheets %}
+    {{parent()}}
+    {% stylesheets '@base_assets_css' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    {% javascripts '@base_assets_js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+    {% set item = knp_menu_get('main') %}
+    <div class="mdl-layout">
+	{% block header %}
+	    {{include('FrontendMainBundle:Main:header.html.twig')}}
+	{% endblock %}
+	<main class="mdl-layout__content">
+	    <div class="portal-max-width">
+		{% block content %}
+		    {{include('FrontendMainBundle:Main:content.html.twig')}}
+		{% endblock %}
+	    </div>
+	    {% block footer %}
+		{{include('FrontendMainBundle:Main:footer.html.twig')}}
+	    {% endblock %}
+	</main>
+    </div>
+{% endblock %}

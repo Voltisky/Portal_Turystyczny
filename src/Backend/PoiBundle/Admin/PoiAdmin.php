@@ -53,6 +53,7 @@ class PoiAdmin extends Admin {
     }
 
     protected function configureFormFields(FormMapper $formMapper) {
+	$this->setTemplate('edit', 'BackendPoiBundle:Extended:sonata_edit.html.twig');
 	$sezonowosc = array();
 	if (!is_array($this->getSubject()->getSezonowosc()))
 	{
@@ -96,7 +97,7 @@ class PoiAdmin extends Admin {
 		->with('Adres', array("class" => "col-md-8"))
 		->add('adres', 'sonata_type_model_list')
 		->end()
-		->with('Geolokalizacja')
+		->with('Geolokalizacja', array("class" => "geolokalizacja col-md-12"))
 		->add('wgs_x', 'text', array('required' => false))
 		->add('wgs_y', 'text', array('required' => false))
 		->end()

@@ -39,4 +39,88 @@ class Media extends BaseMedia
     {
         return $this->id;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->galleryHasMedias = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add galleryHasMedia
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $galleryHasMedia
+     *
+     * @return Media
+     */
+    public function addGalleryHasMedia(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $galleryHasMedia)
+    {
+        $this->galleryHasMedias[] = $galleryHasMedia;
+
+        return $this;
+    }
+
+    /**
+     * Remove galleryHasMedia
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $galleryHasMedia
+     */
+    public function removeGalleryHasMedia(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $galleryHasMedia)
+    {
+        $this->galleryHasMedias->removeElement($galleryHasMedia);
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poi_media;
+
+
+    /**
+     * Add poiMedia
+     *
+     * @param \Backend\PoiBundle\Entity\PoiMedia $poiMedia
+     *
+     * @return Media
+     */
+    public function addPoiMedia(\Backend\PoiBundle\Entity\PoiMedia $poiMedia)
+    {
+        $this->poi_media[] = $poiMedia;
+
+        return $this;
+    }
+
+    /**
+     * Remove poiMedia
+     *
+     * @param \Backend\PoiBundle\Entity\PoiMedia $poiMedia
+     */
+    public function removePoiMedia(\Backend\PoiBundle\Entity\PoiMedia $poiMedia)
+    {
+        $this->poi_media->removeElement($poiMedia);
+    }
+
+    /**
+     * Get poiMedia
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPoiMedia()
+    {
+        return $this->poi_media;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Application\Sonata\ClassificationBundle\Entity\Category $category
+     *
+     * @return Media
+     */
+    public function setCategory(\Application\Sonata\ClassificationBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
 }

@@ -1,0 +1,44 @@
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets '@base_map_css' %}
+    <link href="{{ asset_url }}" rel="stylesheet"></script>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@base_map_js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+        var TOKEN = "{{admin.uniqId}}";
+        $(document).ready(function ()
+        {
+            $(".geolokalizacja").append($("<div>", {id: "map", style: "height: 300px"}));
+            var map = new Map();
+            var $geometria = $("#" + TOKEN + "_geometria");
+            var geometriaWKT = $geometria.val();
+
+            map.initialize("map", {
+                drawning: true,
+                drawningWKT: geometriaWKT,
+                onDrawEnd: function (features)
+                {
+                    var wktFormatter = new ol.format.WKT();
+                    var wktString = wktFormatter.writeFeatures(features.getArray(),
+                            {
+                                dataProjection: 'EPSG:4326',
+                                featureProjection: 'EPSG:3857'
+                            });
+
+                    $geometria.val(wktString);
+                }
+            });
+
+        }
+        );
+    </script>
+{% endblock %}

@@ -7,5 +7,5 @@ services:
             - Backend\AdministracyjneBundle\Entity\Adres
             - ~
         calls:
-            - [ setTranslationDomain, [BackendAdministracyjneBundle]]
+            - [ setTranslationDomain, [messages]]
             - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ] ]

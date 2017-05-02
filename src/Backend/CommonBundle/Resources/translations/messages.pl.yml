@@ -1,0 +1,20 @@
+breadcrumb:
+    link_konfiguracja_list: Konfiguracja
+    link_konfiguracja_create: Tworzenie konfiguracji
+list:
+    label_nazwa: Nazwa
+    label_opis: Opis
+    label_main: Główny
+form:
+    label_nazwa: Nazwa
+    label_opis: Opis
+    label_main: Główny
+show:
+    label_nazwa: Nazwa
+    label_opis: Opis
+    label_main: Główny
+filter:
+    label_nazwa: Nazwa
+    label_opis: Opis
+    label_main: Główny
+    

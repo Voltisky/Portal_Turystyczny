@@ -5,7 +5,12 @@ imports:
     - { resource: @BackendPoiBundle/Resources/config/admin.yml }
     - { resource: @BackendAdministracyjneBundle/Resources/config/admin.yml }
     - { resource: @ApplicationSonataUserBundle/Resources/config/admin.xml }
+    - { resource: @ApplicationSonataClassificationBundle/Resources/config/admin.xml }
     - { resource: "@BackendCommonBundle/Resources/config/services.yml" }
+    - { resource: "@BackendCommonBundle/Resources/config/admin.yml" }
+    - { resource: "@FrontendMainBundle/Resources/config/services.yml" }
+    - { resource: "@FrontendMapaBundle/Resources/config/services.yml" }
+    - { resource: "@FrontendPoiBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -49,6 +54,7 @@ framework:
 
 # Twig Configuration
 twig:
+    cache:  false
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
@@ -57,7 +63,25 @@ twig:
         - 'SonataFormatterBundle:Form:formatter.html.twig'
         - 'BackendCommonBundle:Form:fields.html.twig'
         - 'SonataCoreBundle:Form:datepicker.html.twig'
-
+        
+sonata_admin:
+    title: Portal turystyczny
+#    title_logo: bundles/venecomponents/img/logo-vene.png
+    dashboard:
+        groups:
+            Administracja: ~
+            Konfiguracja: ~
+            POI i Szlaki: ~           
+            sonata_categories:       
+                label_catalogue: SonataClassificationBundle           
+            sonata_user:
+                label_catalogue: SonataUserBundle
+            sonata_media:
+               label_catalogue: SonataMediaBundle
+               items:
+                   - sonata.media.admin.media
+                   - sonata.media.admin.gallery
+            
 sonata_formatter:
     formatters:
         markdown:
@@ -180,8 +204,8 @@ sonata_media:
                 - sonata.media.provider.vimeo
 
             formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 500 , quality: 70}
+                small: { width: 100 , quality: 100}
+                big:   { width: 500 , quality: 100}
 
     cdn:
         server:
@@ -227,5 +251,23 @@ swiftmailer:
 assetic:
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
+    assets:
+        base_assets_js:
+            inputs:
+                - '@FrontendMainBundle/Resources/public/js/material.min.js'
+                - '@FrontendMainBundle/Resources/public/js/materialize.min.js'
+                - '@FrontendMainBundle/Resources/public/js/main.js'
+        base_assets_css:
+            inputs:
+                - '@FrontendMainBundle/Resources/public/css/material.min.css'
+                - '@FrontendMainBundle/Resources/public/css/materialize.min.css'
+                - '@FrontendMainBundle/Resources/public/css/style.css'
+        base_map_js:
+            inputs:
+                - '@FrontendMapaBundle/Resources/public/js/ol-debug.js'
+                - '@FrontendMapaBundle/Resources/public/js/map.js'
+        base_map_css:
+            inputs:
+                - '@FrontendMapaBundle/Resources/public/css/ol.css'
     filters:
         cssrewrite: ~

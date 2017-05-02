@@ -1,0 +1,6 @@
+frontend_main_homepage:
+    path:     /
+    defaults: { _controller: FrontendMainBundle:Default:index }
+frontend_main_homepage2:
+    path:     /test
+    defaults: { _controller: FrontendMainBundle:Default:index2 }

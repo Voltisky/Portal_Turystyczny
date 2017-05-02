@@ -1,0 +1,3 @@
+frontend_mapa_homepage:
+    path:     /
+    defaults: { _controller: FrontendMapaBundle:Default:index }

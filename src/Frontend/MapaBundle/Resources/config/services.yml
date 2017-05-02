@@ -1,0 +1,4 @@
+services:
+#    frontend_mapa.example:
+#        class: Frontend\MapaBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

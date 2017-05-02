@@ -43,7 +43,7 @@ class SzlakAdmin extends PoiAdmin {
 
     protected function configureFormFields(FormMapper $formMapper) {
 	parent::configureFormFields($formMapper);
-
+	$this->setTemplate('edit', 'BackendPoiBundle:Extended:sonata_edit_szlaki.html.twig');
 	$formMapper
 		->remove('wgs_x')
 		->remove('wgs_y')
@@ -57,24 +57,7 @@ class SzlakAdmin extends PoiAdmin {
 		->end()
 		->end();
 	$formMapper->tab("Informacje podstawowe");
-	if ($this->getSubject())
-	{
-	    $formMapper->with('Geolokalizacja')
-		    ->add('u92_x_s', 'text', array(
-			'label' => " ",
-			'required' => false,
-			'attr' => array('style' => "opacity:0")))
-		    ->add('u92_y_s', 'hidden', array('label' => "współrzędne początku (u 92) - y"))
-		    ->add('wgs_x_s', 'hidden', array('label' => "współrzędne początku (WGS 84) - x"))
-		    ->add('wgs_y_s', 'hidden', array('label' => "współrzędne początku (WGS 84) - y"))
-		    ->add('u92_x_k', 'hidden', array('label' => "współrzędne końca (u 92) - x"))
-		    ->add('u92_y_k', 'hidden', array('label' => "współrzędne końca (u 92) - y"))
-		    ->add('wgs_x_k', 'hidden', array('label' => "współrzędne końca (WGS 84) - x"))
-		    ->add('wgs_y_k', 'hidden', array('label' => "współrzędne końca (WGS 84) - y"))
-		    ->end()
-		    ->end();
-	}
-	$formMapper->with('Geolokalizacja')
+	$formMapper->with('Geolokalizacja', array( "class" => "col-md-12 geolokalizacja"))
 		->add("geometria", "hidden", array("attr" => array("hidden" => true)))
 		->end()
 		->end();

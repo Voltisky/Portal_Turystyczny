@@ -1,0 +1,230 @@
+
+body {
+    /*overflow:hidden !important;*/
+    color: rgb(178,255,89);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+.portal-header {
+    position: relative;
+    background: url(/bundles/frontendmain/img/header.jpg);
+    /* Set a specific height */
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.portal-header .mdl-layout__header-row {
+    padding: 0;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.mdl-layout__title {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.is-compact .mdl-layout__title span {
+    display: none;
+}
+
+.portal-logo-row {
+    min-height: 200px;
+}
+
+.is-compact .portal-logo-row {
+    min-height: auto;
+}
+
+.portal-logo {
+    background: url(images/logo.png) 50% no-repeat;
+    background-size: cover;
+    height: 150px;
+    width: 150px;
+    margin: auto auto 10px;
+}
+
+.is-compact .portal-logo {
+    height: 50px;
+    width: 50px;
+    margin-top: 7px;
+}
+
+.portal-navigation-row {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.portal-navigation-row  .mdl-navigation {
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+.portal-navigation-row .mdl-navigation__link {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    line-height: 42px;
+    color: rgb(178,255,89);
+    font-weight: 300;
+    position: relative;
+    transition-duration: 0.5s;
+    text-transform: uppercase;
+}
+
+.portal-navigation-row .mdl-navigation__link:hover, .portal-navigation-row .current {
+    text-shadow: 1px 1px 1px;
+}
+
+.portal-navigation-row .mdl-navigation__link:after{
+    content: "";
+    width: 0px;
+    height: 2px;
+    left:50%;
+    bottom: 0;
+    position: absolute;
+    transition-duration: 0.5s;
+    background-color: rgba(178,255,89, 0.5);
+}
+
+.portal-navigation-row .current:after, .portal-navigation-row .mdl-navigation__link:hover:after {
+    content: "";
+    width: 90%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(178,255,89, 0.5);
+    left: 5%;
+}
+
+.portal-card .mdl-card__title {
+    padding-bottom: 0;
+}
+
+.portal-blog-card-full-bg {
+    background: url(images/example-blog03.jpg) center / cover;
+}
+
+.portal-blog-card-event-bg {
+    background: url(images/example-blog05.jpg) center / cover;
+}
+
+.portal-blog-card-strip-bg {
+    background: url(images/example-blog06.jpg) center / cover;
+}
+
+.portal-blog-card-compact .mdl-card__title {
+    padding-bottom: 0;
+}
+
+.portal-blog-card-bg > .mdl-card__actions {
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+img.article-image {
+    width: 100%;
+    height: auto;
+}
+
+.portal-max-width {
+    max-width: 900px;
+    margin: auto;
+}
+
+.portal-copy {
+    max-width: 700px;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-left-padding{
+    padding-left: 0;
+}
+
+.no-bottom-padding {
+    padding-bottom: 0;
+}
+
+.padding-top {
+    padding: 10px 0 0;
+}
+
+.portal-share-btn {
+    position: relative;
+    float: right;
+    top: -4px;
+}
+
+.demo-card-event > .mdl-card__actions {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.portal-contact .mdl-textfield {
+    width: 100%;
+}
+
+.portal-contact form {
+    max-width: 550px;
+    margin: auto;
+}
+
+footer {
+    background-image: url(images/footer-background.png);
+    background-size: cover;
+}
+
+.portal-menu {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+.portal-latest-poi .mdl-card__media {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.portal-latest-poi .mdl-card__media .article-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.portal-heading {
+    width: 100%;
+    margin: 8px;
+    font-weight: 300;
+    color: rgb(76,175,80);
+}
+
+.portal-heading .portal-heading-title {
+    text-align:center;
+    border-bottom: 1px solid rgb(76,175,80);
+}
+
+.portal-mapa {
+    width: 100%;
+}
+
+#frontend-map {
+    height: 400px;
+}

@@ -1,0 +1,29 @@
+<div class="mdl-grid portal-local-informations-poi">
+    {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.poi.local_informations"|trans} %}
+
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a href="#most_read">{{"frontend.poi.most_read"|trans}}</a></li>
+                <li class="tab col s3"><a href="#latest">{{"frontend.poi.latest_added"|trans}}</a></li>
+            </ul>
+        </div>
+        <div id="most_read" class="col s12 mdl-grid">
+            {% for item in mostRead %}
+                {% include "FrontendPoiBundle:Poi:poi_card_half.html.twig" with {'item': item} %}
+            {% endfor %}
+        </div>
+        <div id="latest" class="col s12 mdl-grid">
+            {% for item in mostRead %}
+                {% include "FrontendPoiBundle:Poi:poi_card_half.html.twig" with {'item': item} %}
+            {% endfor %}
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function(){
+                $('ul.tabs').tabs();
+            }, 2000);
+        });
+    </script>
+</div>

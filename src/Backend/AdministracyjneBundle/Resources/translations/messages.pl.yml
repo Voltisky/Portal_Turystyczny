@@ -1,0 +1,42 @@
+breadcrumb:
+    link_adres_list: Lista Miejscowości
+list:
+    label_nazwa: Nazwa
+    label_nazwa_woj: Nazwa województwa
+    label_nazwa_pow: Nazwa powiatu
+    label_nazwa_gmi: Nazwa gminy
+    label_woj: Województwo teryt
+    label_pow: Powiat teryt
+    label_teryt: Teryt
+    label__action: Akcje
+    label_gmi: Gmina teryt
+form:
+    label_nazwa: Nazwa
+    label_nazwa_woj: Nazwa województwa
+    label_nazwa_pow: Nazwa powiatu
+    label_nazwa_gmi: Nazwa gminy
+    label_woj: Województwo teryt
+    label_pow: Powiat teryt
+    label_teryt: Teryt
+    label__action: Akcje
+    label_gmi: Gmina teryt
+    label_sym: Sym
+    label_sym_pod: Sym_Pod
+    label_nazwa_dod: Nazwa dodatkowa
+    label_rodzaj_gmi: Rodzaj gminy
+    label_stan_na: Stan na
+filter:
+    label_nazwa: Nazwa
+    label_nazwa_woj: Nazwa województwa
+    label_nazwa_pow: Nazwa powiatu
+    label_nazwa_gmi: Nazwa gminy
+    label_woj: Województwo teryt
+    label_pow: Powiat teryt
+    label_teryt: Teryt
+    label__action: Akcje
+    label_gmi: Gmina teryt
+    label_sym: Sym
+    label_sym_pod: Sym_Pod
+    label_nazwa_dod: Nazwa dodatkowa
+    label_rodzaj_gmi: Rodzaj gminy
+    label_stan_na: Stan na

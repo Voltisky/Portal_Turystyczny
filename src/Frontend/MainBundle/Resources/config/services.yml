@@ -1,0 +1,21 @@
+services:
+    app.menu_builder:
+        class: Frontend\MainBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    app.main_menu:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory: ["@app.menu_builder", createMainMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu
+
+    app.main.konfiguracja:
+          class: Frontend\MainBundle\Services\KonfiguracjaService
+          arguments: [ "@doctrine.orm.entity_manager" ]
+          
+    app.main.main_eventlistener:
+        class: Frontend\MainBundle\EventListener\MainEventListener
+        arguments: [ @service_container ]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

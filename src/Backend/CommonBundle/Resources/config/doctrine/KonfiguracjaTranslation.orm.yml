@@ -1,0 +1,30 @@
+Backend\CommonBundle\Entity\KonfiguracjaTranslation:
+  type: entity
+  table: konfiguracja_translate
+  uniqueConstraints:
+    konfiguracja_lookup_unique_idx:
+      columns: locale,object_id,field
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    locale:
+      type: string
+      length: 32
+    field:
+      type: string
+      length: 32
+    content:
+      type: text
+      nullable: true
+      
+  manyToOne:
+    object:
+      targetEntity: Konfiguracja
+      inversedBy: translations
+      joinColumn:
+        name: object_id
+        referencedColumnName: id
+        onDelete: CASCADE
