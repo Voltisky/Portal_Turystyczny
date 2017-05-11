@@ -39,4 +39,82 @@ class User extends BaseUser
     {
         return $this->id;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poi;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poi_created;
+
+
+    /**
+     * Add poi
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poi
+     *
+     * @return User
+     */
+    public function addPoi(\Backend\PoiBundle\Entity\Poi $poi)
+    {
+        $this->poi[] = $poi;
+
+        return $this;
+    }
+
+    /**
+     * Remove poi
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poi
+     */
+    public function removePoi(\Backend\PoiBundle\Entity\Poi $poi)
+    {
+        $this->poi->removeElement($poi);
+    }
+
+    /**
+     * Get poi
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPoi()
+    {
+        return $this->poi;
+    }
+
+    /**
+     * Add poiCreated
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poiCreated
+     *
+     * @return User
+     */
+    public function addPoiCreated(\Backend\PoiBundle\Entity\Poi $poiCreated)
+    {
+        $this->poi_created[] = $poiCreated;
+
+        return $this;
+    }
+
+    /**
+     * Remove poiCreated
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poiCreated
+     */
+    public function removePoiCreated(\Backend\PoiBundle\Entity\Poi $poiCreated)
+    {
+        $this->poi_created->removeElement($poiCreated);
+    }
+
+    /**
+     * Get poiCreated
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPoiCreated()
+    {
+        return $this->poi_created;
+    }
 }

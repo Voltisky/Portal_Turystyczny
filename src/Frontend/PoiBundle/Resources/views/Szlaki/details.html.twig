@@ -1,0 +1,25 @@
+{% extends "@FrontendPoi/Details/baseDetails.html.twig" %}
+
+{% block detailsHeader %}
+    {% include "FrontendPoiBundle:Szlaki:detailsHeader.html.twig" with {"detailsItem": detailsItem} %}
+    {% include "@FrontendPoi/Szlaki/detailsLocalization.html.twig" with {"detailsItem": detailsItem} %}
+{% endblock %}
+
+{% block detailsContent %}
+    <div class="row  details-sector">
+        {% include "@FrontendPoi/Szlaki/detailsContentInfo.html.twig" with {"detailsItem": detailsItem} %}
+    </div>
+{% endblock %}
+
+{% block additional %}
+    {% include "@FrontendPoi/Details/baseDetailsMedia.html.twig" with {"detailsItem": detailsItem} %}
+    {% include "@FrontendPoi/Szlaki/detailsStage.html.twig" with {"detailsItem": detailsItem} %}
+    {% if similarItems|length > 0 %}
+        <div class="details-localization details-sector">
+            <div class=" mdl-typography--title  appText">
+                {{ "frontend.poi.similarItems"|trans }}
+            </div>
+            {% include "@FrontendPoi/Szlaki/similarList.html.twig" with {"similarItems": similarItems} %}
+        </div>
+    {% endif %}
+{% endblock %}

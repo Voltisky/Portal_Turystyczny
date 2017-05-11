@@ -1,21 +1,19 @@
-{% extends 'FrontendMainBundle:Main:page.html.twig' %}
+{% extends 'FrontendMainBundle:Main:subPage.html.twig' %}
 
-{% block content %}
+{% block sidebar %}
+    {{ render(controller("FrontendPoiBundle:Category:getCategorySidebar", {"parentId": 5})) }}
+{% endblock %}
+
+{% block subPage_content %}
     {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.szlaki.title"|trans} %}
 
-    <div class="mdl-grid">
+    <div class="mdl-grid row">
         {% for item in items %}
-            {% include "FrontendPoiBundle:Poi:poi_card.html.twig" with {'item': item} %}
+            {% include "FrontendPoiBundle:Poi:poi_card_half.html.twig" with {'item': item} %}
         {% endfor %}
     </div>
 
     {{ render(controller(
-        'FrontendPoiBundle:Default:getLatestPoi',
-        { 'maxItems': 3 }
-    )) }}
-
-
-    {{ render(controller(
-        'FrontendPoiBundle:Default:getLocalInformations'
+    'FrontendPoiBundle:Default:getLocalInformations'
     )) }}
 {% endblock %}

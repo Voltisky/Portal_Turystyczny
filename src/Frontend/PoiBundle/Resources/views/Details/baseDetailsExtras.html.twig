@@ -1,0 +1,69 @@
+<div class="col s4">
+    <div class="details-content-extras hoverable">
+        <div class="details-content-extras-header">
+            {{ "frontend.poi.informacje"|trans|upper }}
+        </div>
+        {% if detailsItem.adres %}
+            <div class="details-content-extras-information">
+                <div class="details-content-extras-title">
+                    {{ "frontend.poi.adres"|trans }}
+                </div>
+                <div class="details-content-extras-value">
+                    {{ detailsItem.adres }}
+                </div>
+            </div>
+        {% endif %}
+        {% if detailsItem.nrtel %}
+            <div class="details-content-extras-information">
+                <div class="details-content-extras-title">
+                    {{ "frontend.poi.nrtel"|trans }}
+                </div>
+                <div class="details-content-extras-value">
+                    {{ detailsItem.nrtel }}
+                </div>
+            </div>
+        {% endif %}
+        {% if detailsItem.nrfax %}
+            <div class="details-content-extras-information">
+                <div class="details-content-extras-title">
+                    {{ "frontend.poi.nrfax"|trans }}
+                </div>
+                <div class="details-content-extras-value">
+                    {{ detailsItem.nrfax }}
+                </div>
+            </div>
+        {% endif %}
+        {% if detailsItem.www %}
+            <div class="details-content-extras-information">
+                <div class="details-content-extras-title">
+                    {{ "frontend.poi.www"|trans }}
+                </div>
+                <div class="details-content-extras-value">
+                    <a href="//{{ detailsItem.www }}" target="_blank">{{ detailsItem.www }}</a>
+                </div>
+            </div>
+        {% endif %}
+        {% if detailsItem.email %}
+            <div class="details-content-extras-information">
+                <div class="details-content-extras-title">
+                    {{ "frontend.poi.email"|trans }}
+                </div>
+                <div class="details-content-extras-value">
+                    <a href="mailto:{{ detailsItem.email }}">{{ detailsItem.email }}</a>
+                </div>
+            </div>
+        {% endif %}
+        {% if detailsItem.wgsX and detailsItem.wgsY %}
+            <div class="details-content-extras-information">
+                <div class="details-content-extras-title">
+                    {{ "frontend.poi.wspolrzedne"|trans }}
+                </div>
+                <div class="details-content-extras-value">
+                    {{ detailsItem.wgsY|number_format(10) }}
+                    , {{ detailsItem.wgsX|number_format(10) }}
+                    {{ detailsItem.wgsY|toGps }}, {{ detailsItem.wgsX|toGps }}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{% if detailsItem.geometria %}
+    <div class="details-localization details-sector">
+        {% block detailsLocalization %}
+            <div class=" mdl-typography--title  appText">
+                {{ "frontend.poi.localization"|trans }}
+            </div>
+            <div id="details-mapa"></div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var map = new Map();
+                    map.initialize("details-mapa", {
+                        drawning: false,
+                        drawningWKT: '{{ detailsItem.geometria }}'
+                    });
+                });
+            </script>
+        {% endblock %}
+    </div>
+{% endif %}

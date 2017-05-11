@@ -1,0 +1,30 @@
+{% extends "FrontendMainBundle:External:base_siderbar.html.twig" %}
+
+{% import _self as macros %}
+{% set baseCategory = categories[1] %}
+
+{% if categories[parentId] is defined %}
+    {% set baseCategory = categories[parentId] %}
+{% endif %}
+
+{% block sidebar_header %}
+    {% if baseCategory is defined and baseCategory.data.id != 1 %}
+        {{ baseCategory.data.name }}
+    {% else %}
+        {{ "frontend.category.list.title"|trans }}
+    {% endif %}
+{% endblock %}
+
+{% block sidebar_items %}
+    {{ macros.tree(categories, baseCategory, 0) }}
+{% endblock %}
+
+{% macro tree(fullCollection, categoryCollection, depth) %}
+    {% for categoryId in categoryCollection["childrens"] %}
+        {% include "FrontendPoiBundle:Category:sidebar_category_item.html.twig" with {"category": fullCollection[categoryId]["data"], "depth": depth + 1} %}
+        {% if fullCollection[categoryId]["childrens"] is defined %}
+            {% import _self as macros %}
+            {{ macros.tree(fullCollection, fullCollection[categoryId], depth + 1) }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}

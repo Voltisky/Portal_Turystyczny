@@ -39,6 +39,10 @@ security:
         # This firewall is used to handle the public login area
         # This part is handled by the FOS User Bundle
         main:
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 604800 # 1 week in seconds
+                path:     /
             pattern:             .*
             context:             user
             form_login:
@@ -47,6 +51,8 @@ security:
                 use_forward:    false
                 check_path:     /login_check
                 failure_path:   null
+                always_use_default_target_path: true
+                use_referer: true
             logout:             true
             anonymous:          true
     access_control:

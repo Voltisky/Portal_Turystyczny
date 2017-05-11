@@ -1,0 +1,116 @@
+{% extends "@FrontendMain/Main/subPage.html.twig" %}
+
+{% block subPage_content %}
+    <div class="row">
+        <div class="range-field">
+            <input type="range" id="nearRange" min="0" max="100" value="20"/>
+        </div>
+        <h3 id="processing">{{ "frontend.w_poblizu.processing.get_position"|trans }}</h3>
+        <div id="near-map"></div>
+    </div>
+    <div class="nearItems">
+
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Initialize map
+            var map = new Map();
+            map.initialize("near-map");
+
+            // Warsaw coordinates
+            var x = 17.926126;
+            var y = 50.671062;
+            var feature = null;
+            var circle = null;
+
+            var coordinate = map.getMapCoordinate([parseFloat(x), parseFloat(y)]);
+            feature = new ol.Feature({
+                type: 'icon',
+                geometry: new ol.geom.Point(coordinate)
+            });
+
+            map.layers.featureOverlay.getSource().clear();
+            map.layers.featureOverlay.getSource().addFeature(feature);
+
+            getCurrentCoordinates(function (lat, long) {
+                if (lat && long) {
+                    $("#processing").empty();
+                    x = long;
+                    y = lat;
+                } else {
+                    $("#processing").text("{{ "frontend.w_poblizu.processing.not_found"|trans }}");
+                }
+
+                var coordinate = map.getMapCoordinate([parseFloat(x), parseFloat(y)]);
+                feature = new ol.Feature({
+                    type: 'icon',
+                    geometry: new ol.geom.Point(coordinate)
+                });
+
+                map.layers.featureOverlay.getSource().clear();
+                map.layers.featureOverlay.getSource().addFeature(feature);
+
+                $("#nearRange").trigger("change");
+            });
+
+            $("#nearRange").on("change", function () {
+                var distance = $(this).val();
+
+                // Draw circle with circle in radius
+                if (x && y) {
+                    var coordinate = map.getMapCoordinate([parseFloat(x), parseFloat(y)]);
+
+                    if (circle) {
+                        map.layers.featureOverlay.getSource().removeFeature(circle);
+                    }
+
+                    circle = new ol.Feature(new ol.geom.Circle(coordinate, distance * 1000)); // kilometers
+                    map.layers.featureOverlay.getSource().addFeature(circle);
+
+                    map.fitToExtent(circle.getGeometry().getExtent());
+                }
+
+                $.post("{{ path("frontend_poi_get_near", {"_locale": app.request.locale}) }}", {
+                    distance: distance,
+                    x: x,
+                    y: y
+                }, function (json) {
+                    $(".nearItems").slideUp(function () {
+                        var data = JSON.parse(json);
+                        $(this).html(data["content"]);
+                        $(this).slideDown();
+
+                        map.layers.featureLayer.getSource().clear();
+
+                        $.each(data.coordinates, function (i, v) {
+                            var coordinate = map.getMapCoordinate([parseFloat(v.x), parseFloat(v.y)]);
+                            var nearFeature = new ol.Feature({
+                                type: "icon",
+                                geometry: new ol.geom.Point(coordinate)
+                            });
+
+                            map.layers.featureLayer.getSource().addFeature(nearFeature);
+                        });
+                    });
+                });
+
+            });
+        });
+
+        function getCurrentCoordinates(callback) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                    callback && callback(loc[0], loc[1]);
+                },
+                function (failure) {
+                    $.getJSON('https://ipinfo.io/geo', function (response) {
+                        var loc = response.loc.split(',');
+                        callback && callback(loc[0], loc[1]);
+                    }, function () {
+                        callback && callback(null, null);
+                    });
+                }
+            );
+        }
+    </script>
+{% endblock %}

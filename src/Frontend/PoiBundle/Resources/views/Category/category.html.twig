@@ -1,0 +1,55 @@
+{% extends "@FrontendMain/Main/subPage.html.twig" %}
+
+{% block subPage_content %}
+    {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.category.title"|trans} %}
+
+    <h2 class="appText appColor">{{ category.name }}</h2>
+    {% if category.media %}
+        {% media category.media, 'wide' %}
+    {% endif %}
+
+    {% block filter %}
+
+        <div class="row hoverable" style="margin:20px 0px; padding: 30px; background: #fff;">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="row">
+                <div class=" input-field col s3">
+                    {{ form_label(form.name) }}
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class=" input-field col s6">
+                    {{ form_errors(form.categories) }}
+                    {{ form_widget(form.categories) }}
+                    {{ form_label(form.categories) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class=" input-field col s6">
+                    {{ form_errors(form.address) }}
+                    {{ form_widget(form.address) }}
+                    {{ form_label(form.address) }}
+                </div>
+            </div>
+            <div class=" row">
+                {{ form_label(form.save) }}
+                {{ form_widget(form.save) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+        <script type="text/javascript">
+            $(document).ready( function(){
+                $('select').material_select();
+            });
+        </script>
+    {% endblock %}
+
+    <div class="mdl-grid row">
+        {% for item in items %}
+            {% include "FrontendPoiBundle:Poi:poi_card.html.twig" with {'item': item} %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

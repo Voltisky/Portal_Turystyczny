@@ -122,7 +122,7 @@ sonata_formatter:
 
 # Doctrine Configuration
 stof_doctrine_extensions:
-    default_locale: pl
+    default_locale: '%locale%'
     orm:
         default:
             timestampable: true
@@ -184,6 +184,13 @@ doctrine:
                         dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
                         alias: GedmoTree # (optional) it will default to the name set for the mapping
                         is_bundle: false
+                dql:
+                    numeric_functions:
+                        COS: Backend\CommonBundle\DQL\Cos
+                        PI: Backend\CommonBundle\DQL\Pi
+                    string_functions:
+                        SIMILARITY: Backend\CommonBundle\DQL\Similarity
+                        STDISTANCE: Backend\CommonBundle\DQL\STDistance
 
 # app/config/config.yml
 sonata_media:
@@ -195,6 +202,13 @@ sonata_media:
     db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
     default_context: default # you need to set a context
     contexts:
+        sonata_category:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                preview: { width: 100, quality: 100}
+                wide:    { width: 820, quality: 100}
         default:  # the default context is mandatory
             providers:
                 - sonata.media.provider.dailymotion
@@ -206,7 +220,6 @@ sonata_media:
             formats:
                 small: { width: 100 , quality: 100}
                 big:   { width: 500 , quality: 100}
-
     cdn:
         server:
             path: /uploads/media # http://media.sonata-project.org/

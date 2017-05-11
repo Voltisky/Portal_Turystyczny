@@ -1,0 +1,48 @@
+{% if detailsItem.etapySzlak|length > 0 %}
+    {% macro poiStage(etap, number) %}
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">place</i> <i class="material-icons right">account_balance</i> {{ number }}. {{ etap.nazwa }}
+            </div>
+            <div class="collapsible-body">
+                <div>{{ etap.opis }}</div>
+                <div class="chip">
+                    {{ etap.poi.nazwa }}: {{ etap.poi.opis|truncate(50) }}
+                </div>
+            </div>
+        </li>
+    {% endmacro %}
+    {% macro mediaStage(media, number) %}
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">place</i> <i class="material-icons right">collections</i> {{ number }}. {{ etap.nazwa }}
+            </div>
+            <div class="collapsible-body">
+                <div>{{ etap.opis }}</div>
+                <div class="chip">
+                    {{ etap.media.name }}
+                </div>
+            </div>
+        </li>
+    {% endmacro mediaStage %}
+
+    <div class="details-stages details-sector">
+        {% block detailsLocalization %}
+            <div class=" mdl-typography--title  appText">
+                {{ "frontend.poi.stages"|trans }}
+            </div>
+            <div class="details-stages-list">
+                <ul class="collapsible" data-collapsible="accordion">
+                    {% import _self as ms %}
+                    {% for key, etap in detailsItem.etapySzlak %}
+                        {% if etap.powiazanie == 'poi' %}
+                            {{ ms.poiStage(etap, key + 1) }}
+                        {% else %}
+                            {{ ms.mediaStage(etap, key + 1) }}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endblock %}
+    </div>
+{% endif %}

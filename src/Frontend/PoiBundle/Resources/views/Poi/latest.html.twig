@@ -1,4 +1,4 @@
-<div class="mdl-grid portal-latest-poi">
+<div class="mdl-grid row portal-latest-poi">
     {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.poi.latest"|trans} %}
     {% for item in items %}
         {% include "FrontendPoiBundle:Poi:poi_card.html.twig" with {'item': item} %}

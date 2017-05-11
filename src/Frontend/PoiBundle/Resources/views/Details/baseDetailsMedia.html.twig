@@ -1,0 +1,21 @@
+{% if detailsItem.poiMedia|length > 0 %}
+    <div class="details-media  details-sector">
+        {% block detailsMedia %}
+            <div class=" mdl-typography--title  appText">
+                {{ "frontend.poi.media"|trans }}
+            </div>
+            <div class="details-media-list">
+                {% for media in detailsItem.poiMedia %}
+                    <div class="details-media-media">
+                        <img src="{% path media.media, 'big' %}" width="250" class="details-media-image"/>
+                    </div>
+                {% endfor %}
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".details-media-image").materialbox();
+                });
+            </script>
+        {% endblock %}
+    </div>
+{% endif %}

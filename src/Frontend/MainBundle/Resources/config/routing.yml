@@ -1,6 +1,19 @@
 frontend_main_homepage:
     path:     /
     defaults: { _controller: FrontendMainBundle:Default:index }
+
+frontend_main_homepage_lang:
+    path:     /{_locale}/
+    defaults: { _controller: FrontendMainBundle:Default:index }
+
+frontend_main_change_locale:
+    path:     /lang/change/{_locale}
+    defaults: { _controller: FrontendMainBundle:Default:changeLocale }
+
 frontend_main_homepage2:
     path:     /test
     defaults: { _controller: FrontendMainBundle:Default:index2 }
+
+frontend_login_form:
+    path:     /{_locale}/login
+    defaults: { _controller: FrontendMainBundle:Security:login }

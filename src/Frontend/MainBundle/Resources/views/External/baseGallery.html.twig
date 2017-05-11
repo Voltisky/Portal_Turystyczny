@@ -1,0 +1,14 @@
+{% if medias|length > 0 %}
+    <div class="carousel carousel-slider">
+        {% for media in medias %}
+            <a class="carousel-item" href="#{{ media.media.name }}">
+                <img src="{% path  media.media, 'big' %}" alt="{{ media.media.name }}"/>
+            </a>
+        {% endfor %}
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.carousel').carousel({fullWidth: true});
+        });
+    </script>
+{% endif %}

@@ -1,0 +1,9 @@
+frontend:
+    main:
+      choose_lang: Wybierz język
+      user:
+          hello_user: Witaj, %name%
+          login: Zaloguj się
+          username: Nazwa użytkownika
+          password: Hasło
+          remember_me: Zapamiętaj

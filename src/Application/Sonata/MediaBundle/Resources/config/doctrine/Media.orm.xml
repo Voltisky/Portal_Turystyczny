@@ -29,10 +29,16 @@
 	    </cascade>
 	</one-to-many>
 
-	<one-to-many field="konfiguracja_default_image" target-entity="\Backend\CommonBundle\Entity\Konfiguracja" mapped-by="media_konfiguracja_default_image">
-	    <cascade>
-		<cascade-all/>
-	    </cascade>
-	</one-to-many>
+		<one-to-many field="konfiguracja_default_image" target-entity="\Backend\CommonBundle\Entity\Konfiguracja" mapped-by="media_konfiguracja_default_image">
+			<cascade>
+				<cascade-all/>
+			</cascade>
+		</one-to-many>
+
+		<one-to-many field="etapy" target-entity="Backend\PoiBundle\Entity\Etap" mapped-by="media">
+			<cascade>
+				<cascade-all/>
+			</cascade>
+		</one-to-many>
     </entity>
 </doctrine-mapping>

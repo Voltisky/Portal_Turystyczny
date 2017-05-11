@@ -1,0 +1,25 @@
+{% if detailsItem.wgsX and detailsItem.wgsY %}
+    <div class="details-localization details-sector">
+        {% block detailsLocalization %}
+            <div class=" mdl-typography--title  appText">
+                {{ "frontend.poi.localization"|trans }}
+            </div>
+            <div id="details-mapa"></div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var map = new Map();
+                    map.initialize("details-mapa");
+                    var x = {{ detailsItem.wgsX }};
+                    var y = {{ detailsItem.wgsY }};
+                    var coordinate = map.getMapCoordinate([parseFloat(x), parseFloat(y)]);
+
+                    map.layers.featureLayer.getSource().clear();
+                    map.layers.featureLayer.getSource().addFeature(new ol.Feature({
+                        type: 'icon',
+                        geometry: new ol.geom.Point(coordinate)
+                    }));
+                });
+            </script>
+        {% endblock %}
+    </div>
+{% endif %}

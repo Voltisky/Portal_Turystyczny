@@ -1,0 +1,15 @@
+<div class="collection">
+    {% for item in similarItems %}
+        <div class="collection-item avatar">
+            {% if item.poiMedia|length > 0 %}
+                <img class="circle" src="{% path item.poiMedia[0].media, 'small' %}" border="0" alt="">
+            {% else %}
+                <img class="circle" src="{% path konfiguracja.defaultImage, 'small' %}" border="0" alt="">
+            {% endif %}
+
+            <div class="title">
+                <a href="{{ item|getPath }}">{{ item.nazwa }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -235,7 +235,7 @@ Backend\PoiBundle\Entity\Poi:
           referencedColumnName: id
     user:
       targetEntity: Application\Sonata\UserBundle\Entity\User
-      inversedBy: wprowadzajacy_w_poi
+      inversedBy: poi
       joinColumns:
         wprowadzajacy:
           referencedColumnName: id

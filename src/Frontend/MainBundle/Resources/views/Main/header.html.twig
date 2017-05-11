@@ -1,14 +1,45 @@
-<header class="mdl-layout__header mdl-layout__header--waterfall portal-header">
-    <div class="mdl-layout__header-row portal-logo-row">
-	<span class="mdl-layout__title">
-	    {#	    <div class="portal-logo"></div>#}
-	    <span class="mdl-layout__title">{{konfiguracja.nazwa}}</span>
-	</span>
-    </div>
-    <div class="mdl-layout__header-row portal-navigation-row mdl-layout--large-screen-only portal-menu">
-	{{ knp_menu_render(item, {'template': 'FrontendMainBundle:Menu:menu.html.twig'}) }}
-    </div>
+{#<header class="mdl-layout__header mdl-layout__header--waterfall portal-header">#}
+    {#<div class="mdl-layout__header-row portal-logo-row">#}
+	{#<span class="mdl-layout__title">#}
+        {#<span class="mdl-layout__title">{{ konfiguracja.nazwa }}</span>#}
+	{#</span>#}
+    {#</div>#}
+    {#<div class="mdl-layout__header-row portal-navigation-row mdl-layout--large-screen-only portal-menu">#}
+        {#{% include "@FrontendMain/External/langChange.html.twig" %}#}
+        {#{{ knp_menu_render(menuItem, {'template': 'FrontendMainBundle:Menu:menu.html.twig'}) }}#}
+    {#</div>#}
+{#</header>#}
+{#<div class="mdl-layout__drawer mdl-layout--small-screen-only">#}
+    {#{{ knp_menu_render(menuItem, {'template': 'FrontendMainBundle:Menu:menu.html.twig'}) }}#}
+{#</div>#}
+
+<header>
+    <nav class="nav-extended  portal-header">
+        <div class="nav-wrapper portal-logo-row center-align">
+            <a href="{{ path("frontend_main_homepage_lang", {"_locale": app.request.locale}) }}" class=" brand-logo">{{ konfiguracja.nazwa }}</a>
+            <a href="#" data-activates="drawer" class="button-collapse"><i class="material-icons">menu</i></a>
+            <div id="drawer" class="side-nav">
+                {{ knp_menu_render(menuItem, {'template': 'FrontendMainBundle:Menu:menu.html.twig'}) }}
+            </div>
+            <div class="right">
+                {% include "@FrontendMain/User/user_header.html.twig" %}
+            </div>
+            <div class="right">
+                {% include "@FrontendMain/External/langChange.html.twig" %}
+            </div>
+            {#<ul class="side-nav" id="mobile-demo">#}
+                {#<li><a href="sass.html">Sass</a></li>#}
+                {#<li><a href="badges.html">Components</a></li>#}
+                {#<li><a href="collapsible.html">JavaScript</a></li>#}
+            {#</ul>#}
+        </div>
+        <div class="portal-navigation-row portal-menu">
+            {{ knp_menu_render(menuItem, {'template': 'FrontendMainBundle:Menu:menu.html.twig'}) }}
+        </div>
+    </nav>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".button-collapse").sideNav();
+        });
+    </script>
 </header>
-<div class="mdl-layout__drawer mdl-layout--small-screen-only">
-    {{ knp_menu_render(item, {'template': 'FrontendMainBundle:Menu:menu.html.twig'}) }}
-</div>

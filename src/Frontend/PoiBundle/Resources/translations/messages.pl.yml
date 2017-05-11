@@ -3,5 +3,23 @@ frontend:
         latest: Aktualności
         local_informations: Informacje lokalne
         read_more: Czytaj więcej
+        created_at: Data utworzenia
+        autor: Autor
+        media: Media
+        adres: Adres
+        nrtel: Numer telefonu
+        nrfax: Numer fax
+        www: Adres WWW
+        email: Adres E-mail
+        wspolrzedne: Współrzędne
+        informacje: Informacje dodatkowe
+        localization: Lokalizacja
+        similarItems: Podobne
+        stages: Etapy
+    details:
+        hits_number: Liczba wyświetleń
     map:
         title: Mapa
+    category:
+        list:
+            title: Lista kategorii

@@ -19,16 +19,8 @@
 	{
 	    var items = JSON.parse('{{items|raw}}');
 	    var map = new Map();
-	    map.initialize("frontend-map");
+	    map.initialize("frontend-map", {scrollable: false});
 
-	    // Mouse scroll off
-	    map.mapObject.getInteractions().forEach(function (interaction)
-	    {
-		if (interaction instanceof ol.interaction.MouseWheelZoom)
-		{
-		    interaction.setActive(false);
-		}
-	    }, this);
 
 	    if (items && items.length > 0)
 	    {

@@ -1,0 +1,24 @@
+frontend:
+    poi:
+        latest: News
+        local_informations: Informacje lokalne
+        read_more: Read More
+        created_at: Creation Date
+        autor: Author
+        media: Media
+        adres: Address
+        nrtel: Phone Number
+        nrfax: Fax Number
+        www: WWW Address
+        email: E-mail Address
+        wspolrzedne: Coordinates
+        informacje: Extra informations
+        localization: Localization
+        similarItems: Similar
+    details:
+        hits_number: Views
+    map:
+        title: Map
+    category:
+        list:
+            title: Category list

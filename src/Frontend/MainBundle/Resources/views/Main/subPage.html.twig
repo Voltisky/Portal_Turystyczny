@@ -1,0 +1,15 @@
+{% extends 'FrontendMainBundle:Main:page.html.twig' %}
+{% block content %}
+    <div class="row">
+        <div id="sidebar" class="col s3">
+            {% block sidebar %}
+                {{ render(controller("FrontendPoiBundle:Category:getCategorySidebar", {"parentId": 1})) }}
+            {% endblock %}
+        </div>
+        <div id="content" class=" col s9">
+            {% block subPage_content %}
+
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

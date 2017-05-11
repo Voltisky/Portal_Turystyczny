@@ -1,0 +1,7 @@
+<div class="" style="padding: 0px 10px;">
+    {% if app.user %}
+        <span style="padding: 0px 10px;">{{ "frontend.main.user.hello_user"|trans({"%name%": app.user.username}) }}</span><a href="{{ path("fos_user_security_logout") }}" class="btn-floating btn waves-effect waves-light"><span class="material-icons" style="vertical-align: middle;">power_settings_new</span></a>
+    {% else %}
+        <a href="{{ path("frontend_login_form") }}" class="btn"><span class="material-icons" style="vertical-align: middle;">exit_to_app</span> {{ "frontend.main.user.login"|trans }}</a>
+    {% endif %}
+</div>

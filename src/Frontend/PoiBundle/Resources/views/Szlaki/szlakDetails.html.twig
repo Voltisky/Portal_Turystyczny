@@ -1,0 +1,16 @@
+{% extends "@FrontendMain/Main/subPage.html.twig" %}
+
+{% set categoryId = 1 %}
+{% for category in item.poiCategory if category.czyglowny == true %}
+    {% set categoryId = category.category.id %}
+{% endfor %}
+
+{% block sidebar %}
+    {{ render(controller("FrontendPoiBundle:Category:getCategorySidebar", {"parentId": categoryId})) }}
+{% endblock %}
+
+{% block subPage_content %}
+    {% if item is not null %}
+        {% include "@FrontendPoi/Szlaki/details.html.twig" with {"detailsItem": item, "similarItems": similarItems} %}
+    {% endif %}
+{% endblock %}

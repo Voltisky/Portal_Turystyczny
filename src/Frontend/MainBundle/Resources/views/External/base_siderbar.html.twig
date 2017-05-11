@@ -1,0 +1,9 @@
+{% block sidebar_body %}
+    <div class="sidebarmenu">
+        <div class="collection with-header">
+            <div class="collection-header"><h5>{% block sidebar_header %}  {% endblock %}</h5></div>
+            {% block sidebar_items %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,5 @@
+<div class="mdl-grid row">
+    {% for item in items %}
+        {% include "FrontendPoiBundle:Poi:poi_card.html.twig" with {'item': item} %}
+    {% endfor %}
+</div>

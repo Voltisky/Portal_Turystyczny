@@ -201,4 +201,43 @@ class Media extends BaseMedia
     {
         return $this->konfiguracja_default_image;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $etapy;
+
+
+    /**
+     * Add etapy
+     *
+     * @param \Backend\PoiBundle\Entity\Etap $etapy
+     *
+     * @return Media
+     */
+    public function addEtapy(\Backend\PoiBundle\Entity\Etap $etapy)
+    {
+        $this->etapy[] = $etapy;
+
+        return $this;
+    }
+
+    /**
+     * Remove etapy
+     *
+     * @param \Backend\PoiBundle\Entity\Etap $etapy
+     */
+    public function removeEtapy(\Backend\PoiBundle\Entity\Etap $etapy)
+    {
+        $this->etapy->removeElement($etapy);
+    }
+
+    /**
+     * Get etapy
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEtapy()
+    {
+        return $this->etapy;
+    }
 }

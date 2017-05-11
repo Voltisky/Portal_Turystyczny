@@ -1,4 +1,4 @@
-<div class="mdl-cell mdl-card mdl-shadow--4dp portal-card">
+<div class="mdl-cell mdl-card mdl-shadow--4dp portal-card hoverable">
     <div class="mdl-card__media">
         {% if item.poiMedia|length > 0 %}
             <img class="article-image" src="{% path item.poiMedia[0].media, 'big' %}" border="0" alt="">
@@ -22,6 +22,6 @@
         {{item.updatedAt|date('d-m-Y')}}
     </div>
     <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portal-example01.html">{{"frontend.poi.read_more"|trans}}</a>
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{{ item|getPath }}">{{"frontend.poi.read_more"|trans}}</a>
     </div>
 </div>

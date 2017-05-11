@@ -1,4 +1,4 @@
-<div class="mdl-grid portal-local-informations-poi">
+<div class="mdl-grid row portal-local-informations-poi">
     {% include "FrontendMainBundle:External:heading.html.twig" with {'title': "frontend.poi.local_informations"|trans} %}
 
     <div class="row">
@@ -8,12 +8,12 @@
                 <li class="tab col s3"><a href="#latest">{{"frontend.poi.latest_added"|trans}}</a></li>
             </ul>
         </div>
-        <div id="most_read" class="col s12 mdl-grid">
+        <div id="most_read" class="col s12 mdl-grid row">
             {% for item in mostRead %}
                 {% include "FrontendPoiBundle:Poi:poi_card_half.html.twig" with {'item': item} %}
             {% endfor %}
         </div>
-        <div id="latest" class="col s12 mdl-grid">
+        <div id="latest" class="col s12 mdl-grid row">
             {% for item in mostRead %}
                 {% include "FrontendPoiBundle:Poi:poi_card_half.html.twig" with {'item': item} %}
             {% endfor %}

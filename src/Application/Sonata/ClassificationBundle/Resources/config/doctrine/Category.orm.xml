@@ -17,5 +17,10 @@
             <generator strategy="AUTO"/>
         </id>
 
+        <one-to-many field="poi_category" target-entity="\Backend\PoiBundle\Entity\PoiCategory" mapped-by="media">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
     </entity>
 </doctrine-mapping>

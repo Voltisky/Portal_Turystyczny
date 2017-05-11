@@ -1,0 +1,17 @@
+<a class='dropdown-button btn' href='#' data-activates='choose_lang'>
+    <span class="material-icons" style="vertical-align: middle;">flag</span> {{ "frontend.main.choose_lang"|trans }}
+</a>
+
+<ul id='choose_lang' class='dropdown-content'>
+    <li><a href="{{ path("frontend_main_change_locale", {"_locale": "pl"}) }}"><img
+                    src="http://www.free-country-flags.com/countries/Poland/4/tiny/Poland.png"/> PL </a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path("frontend_main_change_locale", {"_locale": "en"}) }}"><img
+                    src="http://www.free-country-flags.com/countries/United_Kingdom/4/tiny/United_Kingdom.png"/> EN
+        </a>
+    </li>
+    <li class="divider"></li>
+    <li><a href="{{ path("frontend_main_change_locale",{"_locale": "de"}) }}"><img
+                    src="http://www.free-country-flags.com/countries/Germany/4/tiny/Germany.png"/> DE </a></li>
+
+</ul>

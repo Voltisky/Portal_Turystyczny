@@ -49,7 +49,7 @@ Backend\PoiBundle\Entity\Etap:
   manyToOne:
       poi:
           targetEntity: Backend\PoiBundle\Entity\Poi
-          inversedBy: etap_poi
+          inversedBy: etapy_poi
           cascade: ["persist"]
           joinColumns:
               poi_id:

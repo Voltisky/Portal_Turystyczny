@@ -47,4 +47,43 @@ class Category extends BaseCategory
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poi_category;
+
+
+    /**
+     * Add poiCategory
+     *
+     * @param \Backend\PoiBundle\Entity\PoiCategory $poiCategory
+     *
+     * @return Category
+     */
+    public function addPoiCategory(\Backend\PoiBundle\Entity\PoiCategory $poiCategory)
+    {
+        $this->poi_category[] = $poiCategory;
+
+        return $this;
+    }
+
+    /**
+     * Remove poiCategory
+     *
+     * @param \Backend\PoiBundle\Entity\PoiCategory $poiCategory
+     */
+    public function removePoiCategory(\Backend\PoiBundle\Entity\PoiCategory $poiCategory)
+    {
+        $this->poi_category->removeElement($poiCategory);
+    }
+
+    /**
+     * Get poiCategory
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPoiCategory()
+    {
+        return $this->poi_category;
+    }
 }

@@ -1,0 +1,21 @@
+{% block detailsMain %}
+    <div id="details" class="appColor">
+        <div class="details-header">
+            {% block detailsHeader %}
+                {% include "FrontendPoiBundle:Details:baseDetailsHeader.html.twig" with {"detailsItem": detailsItem} %}
+            {% endblock %}
+        </div>
+        <div class="details-content">
+            {% block detailsContent %}
+                <div class="row  details-sector">
+                    {% include "@FrontendPoi/Details/baseDetailsContentInfo.html.twig" with {"detailsItem": detailsItem} %}
+                    {% include "@FrontendPoi/Details/baseDetailsExtras.html.twig" with {"detailsItem": detailsItem} %}
+                </div>
+            {% endblock %}
+        </div>
+        {% block additional %}
+            {% include "@FrontendPoi/Details/baseDetailsMedia.html.twig" with {"detailsItem": detailsItem} %}
+            {% include "@FrontendPoi/Details/baseDetailsLocalization.html.twig" with {"detailsItem": detailsItem} %}
+        {% endblock %}
+    </div>
+{% endblock %}

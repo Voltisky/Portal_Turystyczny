@@ -10,6 +10,16 @@
             <generator strategy="AUTO" />
         </id>
 
+        <one-to-many field="poi" target-entity="\Backend\PoiBundle\Entity\Poi" mapped-by="user">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+        <one-to-many field="poi_created" target-entity="\Backend\PoiBundle\Entity\Poi" mapped-by="user">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
     </entity>
 
 </doctrine-mapping>

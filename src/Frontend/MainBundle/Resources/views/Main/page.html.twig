@@ -14,13 +14,22 @@
 {% endblock %}
 
 {% block body %}
-    {% set item = knp_menu_get('main') %}
+    {% set menuItem = knp_menu_get('main') %}
     <div class="mdl-layout">
 	{% block header %}
 	    {{include('FrontendMainBundle:Main:header.html.twig')}}
 	{% endblock %}
 	<main class="mdl-layout__content">
-	    <div class="portal-max-width">
+	    <div class="container main-container">
+
+        {# ...or you can read and display every flash message available #}
+        {% for type, flash_messages in app.session.flashBag.all %}
+            {% for flash_message in flash_messages %}
+                <div class="card-panel flash-{{ type }}">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
 		{% block content %}
 		    {{include('FrontendMainBundle:Main:content.html.twig')}}
 		{% endblock %}

@@ -1,7 +1,27 @@
-frontend_poi_homepage:
-    path:     /test22
-    defaults: { _controller: FrontendPoiBundle:Default:getLatestPoi }
-    
 frontend_poi_szlaki:
-    path:     /szlaki
+    path:     /{_locale}/szlaki
     defaults: { _controller: FrontendPoiBundle:Szlaki:szlaki }
+
+frontend_poi_categories:
+    path:     /{_locale}/categories/{parent_id}/
+    defaults: { _controller: FrontendPoiBundle:Category:list }
+
+frontend_poi_near:
+    path:     /{_locale}/near/
+    defaults: { _controller: FrontendPoiBundle:Default:near }
+
+frontend_poi_get_near:
+    path:     /{_locale}/near_items/
+    defaults: { _controller: FrontendPoiBundle:Default:getNearItems }
+
+frontend_category:
+    path:     /{_locale}/category/item/{id}/{slug}
+    defaults: { _controller: FrontendPoiBundle:Category:getCategory }
+
+frontend_poi_details:
+    path:     /{_locale}/poi/item/{id}/{slug}
+    defaults: { _controller: FrontendPoiBundle:Default:getPoiItem }
+
+frontend_szlak_details:
+    path:     /{_locale}/szlaki/item/{id}/{slug}
+    defaults: { _controller: FrontendPoiBundle:Szlaki:getSzlakItem }
