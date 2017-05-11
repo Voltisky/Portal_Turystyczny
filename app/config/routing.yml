@@ -1,3 +1,7 @@
+frontend_user:
+    resource: "@FrontendUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 frontend_poi:
     resource: "@FrontendPoiBundle/Resources/config/routing.yml"
     prefix:   /

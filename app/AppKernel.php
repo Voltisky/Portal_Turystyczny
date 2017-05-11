@@ -48,6 +48,7 @@ class AppKernel extends Kernel {
             new Frontend\MainBundle\FrontendMainBundle(),
             new Frontend\MapaBundle\FrontendMapaBundle(),
             new Frontend\PoiBundle\FrontendPoiBundle(),
+            new Frontend\UserBundle\FrontendUserBundle(),
         );
 
 	if (in_array($this->getEnvironment(), array('dev', 'test'), true))

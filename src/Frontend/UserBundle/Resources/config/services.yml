@@ -1,0 +1,4 @@
+services:
+#    frontend_user.example:
+#        class: Frontend\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
