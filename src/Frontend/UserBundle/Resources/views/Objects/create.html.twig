@@ -1,0 +1,110 @@
+{% extends "@FrontendUser/User/panel.html.twig" %}
+
+{% block subPage_content %}
+    <div class="row">
+        {{ form_start(form) }}
+
+        {% block formDefaults %}
+            <h2>{{ "frontend.user.object.edit.defaults"|trans }}</h2>
+            {% for field in ["nazwa", "alias"] %}
+                {% if (attribute(form, field) is defined) %}
+                    <div class="input-field col s6">
+                        {{ form_widget(form[field]) }}
+                        {{ form_errors(form[field]) }}
+                        {{ form_label(form[field]) }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            {% for field in ["polozenie", "opis"] %}
+                {% if (attribute(form, field) is defined) %}
+                    <div class="input-field col s12">
+                        {{ form_widget(form[field]) }}
+                        {{ form_errors(form[field]) }}
+                        {{ form_label(form[field]) }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            {% for field in ["nrtel", "nrfax", "email", "www", "kategoria_glowna", "kategorie"] %}
+                {% if (attribute(form, field) is defined) %}
+                    <div class="input-field col s4">
+                        {{ form_widget(form[field]) }}
+                        {{ form_errors(form[field]) }}
+                        {{ form_label(form[field]) }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endblock %}
+
+        {% block formGeolocalization %}
+            <h2>{{ "frontend.user.object.edit.geolocalization"|trans }}</h2>
+            <div class="control-object-edit-geolocalization">
+                <div id="object-edit-map"></div>
+                {% for field in ["wgs_x", "wgs_y"] %}
+                    {% if (attribute(form, field) is defined) %}
+                        <div class="input-field col s6">
+                            {{ form_widget(form[field]) }}
+                            {{ form_errors(form[field]) }}
+                            {{ form_label(form[field]) }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endblock %}
+
+    {% block formAddress %}
+        <h2>{{ "frontend.user.object.edit.address"|trans }}</h2>
+        {% for field in ['adres', 'ulica', 'nrdomu'] %}
+            {% if (attribute(form, field) is defined) %}
+                <div class="input-field col s4">
+                    {{ form_widget(form[field]) }}
+                    {{ form_errors(form[field]) }}
+                    {{ form_label(form[field]) }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block formMedia %}
+        <h2>{{ "frontend.user.object.edit.media"|trans }}</h2>
+        {% for field in ['media'] %}
+            {% if (attribute(form, field) is defined) %}
+                <div class="input-field col s12">
+                    {{ form_widget(form[field]) }}
+                    {{ form_errors(form[field]) }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+
+        <div class="row col s12 input-field">
+            {{ form_row(form.submit, {"attr": {"class": "btn"}}) }}
+        </div>
+        {{ form_end(form) }}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("select").material_select();
+                $('.materialboxed').materialbox();
+
+
+                var map = new Map();
+                map.initialize("object-edit-map", {
+                    onMapClick: function (coordinate, coordinateWgs) {
+                        $("#object_form_wgs_x").val(coordinateWgs[0]);
+                        $("#object_form_wgs_y").val(coordinateWgs[1]);
+                        map.drawFeature(coordinate, true);
+                    },
+                    scrollable: false
+                });
+
+                var x = $("#object_form_wgs_x").val();
+                var y = $("#object_form_wgs_y").val();
+                if (x && y) {
+                    var coordinate = map.getMapCoordinate([parseFloat(x), parseFloat(y)]);
+                    map.drawFeature(coordinate, true);
+                }
+            });
+        </script>
+    </div>
+{% endblock %}

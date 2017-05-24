@@ -23,12 +23,12 @@
                 <input type="hidden" name="_target_path" value="/account" />
             #}
             <input type="hidden" name="_target_path"
-                   value="{{ path("frontend_main_homepage", {"loggedIn": true}) }}"/>
-            <input type="hidden" name="_failure_path" value="{{ path('frontend_login_form') }}"/>
+                   value="frontend_user_panel"/>
+            <input type="hidden" name="_failure_path" value="frontend_login_form"/>
 
             <button type="submit" class="btn">{{ "frontend.main.user.login"|trans }}</button>
         </form>
     {% else %}
-        <a href="{{ path('fos_user_security_logout') }}">{{ "frontend.main.user.logout"|trans }}</a>
+        <a href="{{ path('fos_user_security_logout') }}" class="btn">{{ "frontend.main.user.logout"|trans }}</a>
     {% endif %}
 {% endblock %}

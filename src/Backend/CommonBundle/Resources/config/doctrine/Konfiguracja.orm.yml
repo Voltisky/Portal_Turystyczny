@@ -24,8 +24,6 @@ Backend\CommonBundle\Entity\Konfiguracja:
         - translatable
     main:
       type: boolean
-      gedmo:
-        - translatable
         
   manyToOne:
       logo:

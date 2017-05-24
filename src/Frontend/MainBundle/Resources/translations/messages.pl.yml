@@ -1,9 +1,23 @@
 frontend:
     main:
       choose_lang: Wybierz język
+      opis: Opis
+      exceptions:
+          homepage: Wróc na stronę główną
+          error:
+              404: Podana strona nie istnieje!
+              default: Wystąpił błąd!
+      menu:
+          home: Strona główna
+          route: Szlaki
+          explore: Poznawaj
+          spend_time: Spędzaj czas
+          plan: Zaplanuj
+          near: W pobliżu
       user:
           hello_user: Witaj, %name%
           login: Zaloguj się
           username: Nazwa użytkownika
           password: Hasło
           remember_me: Zapamiętaj
+          logout: Wyloguj się

@@ -5,7 +5,7 @@
 
     <h2 class="appText appColor">{{ category.name }}</h2>
     {% if category.media %}
-        {% media category.media, 'wide' %}
+        {% media category.media, 'big' %}
     {% endif %}
 
     {% block filter %}
@@ -26,13 +26,13 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class=" input-field col s6">
-                    {{ form_errors(form.address) }}
-                    {{ form_widget(form.address) }}
-                    {{ form_label(form.address) }}
-                </div>
-            </div>
+            {#<div class="row">#}
+                {#<div class=" input-field col s6">#}
+                    {#{{ form_errors(form.address) }}#}
+                    {#{{ form_widget(form.address) }}#}
+                    {#{{ form_label(form.address) }}#}
+                {#</div>#}
+            {#</div>#}
             <div class=" row">
                 {{ form_label(form.save) }}
                 {{ form_widget(form.save) }}
@@ -52,4 +52,8 @@
         {% endfor %}
     </div>
 
+{% endblock %}
+
+{% block sidebar %}
+    {{ render(controller("FrontendPoiBundle:Category:getCategorySidebar", {"parentId": 1, "currentId": category.id})) }}
 {% endblock %}

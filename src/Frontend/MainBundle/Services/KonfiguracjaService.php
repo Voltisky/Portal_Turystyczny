@@ -19,9 +19,10 @@ class KonfiguracjaService {
                             . "LEFT JOIN k.logo l "
                             . "LEFT JOIN k.default_image di "
                             . "WHERE k.main = true")
-                    ->setMaxResults(1)
                     ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
-                    ->getSingleResult();
+                    ->getResult();
+
+            $konfiguracja = $konfiguracja[0];
         } catch (\Exception $ex) {
             throw $ex;
         }

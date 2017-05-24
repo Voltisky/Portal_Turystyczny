@@ -1,0 +1,18 @@
+{% extends "@FrontendUser/Objects/create.html.twig" %}
+
+{% block formMedia %}
+    <h2>{{ "frontend.user.object.edit.media"|trans }}</h2>
+    {% if media %}
+        <img class="materialboxed hoverable" style="margin: auto; width: 300px; height: auto;"
+             src="{% path media, 'big' %}">
+    {% endif %}
+
+    {% for field in ['media'] %}
+        {% if (attribute(form, field) is defined) %}
+            <div class="input-field col s12">
+                {{ form_widget(form[field]) }}
+                {{ form_errors(form[field]) }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

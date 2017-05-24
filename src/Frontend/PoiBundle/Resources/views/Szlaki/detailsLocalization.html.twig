@@ -8,10 +8,20 @@
             <script type="text/javascript">
                 $(document).ready(function () {
                     var map = new Map();
+
+
                     map.initialize("details-mapa", {
                         drawning: false,
                         drawningWKT: '{{ detailsItem.geometria }}'
                     });
+
+                    {% if detailsItem.etapySzlak|length > 0 %}
+                        {% for etap in detailsItem.etapySzlak %}
+                            {% if etap.powiazanie == 'poi' and etap.poi and etap.poi.wgsX and etap.poi.wgsY %}
+                                map.drawFeature(map.getMapCoordinate([{{ etap.poi.wgsX }}, {{ etap.poi.wgsY }}]), false);
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 });
             </script>
         {% endblock %}

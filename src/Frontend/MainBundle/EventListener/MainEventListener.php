@@ -20,6 +20,9 @@ class MainEventListener implements EventSubscriberInterface {
     }
 
     public function onKernelRequest(GetResponseEvent $event) {
+        $translatable = $this->container->get('gedmo.listener.translatable');
+        $translatable->setTranslatableLocale($event->getRequest()->getLocale());
+
         //Add twig global variables
         $this->addTwigGlobals();
     }
@@ -27,7 +30,7 @@ class MainEventListener implements EventSubscriberInterface {
     public function addTwigGlobals() {
         $em = $this->container->get('doctrine.orm.entity_manager');
         $konfiguracja = $this->container->get("app.main.konfiguracja")->getKonfiguracja();
-        
+
         //Add avaialble language to twig template as a global variable
         $this->container->get('twig')->addGlobal('konfiguracja', $konfiguracja);
     }

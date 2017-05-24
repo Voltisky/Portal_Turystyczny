@@ -1,12 +1,12 @@
 {% extends 'FrontendMainBundle:Main:page.html.twig' %}
 {% block content %}
     <div class="row">
-        <div id="sidebar" class="col s3">
+        <div id="sidebar" class="col l3 s12">
             {% block sidebar %}
                 {{ render(controller("FrontendPoiBundle:Category:getCategorySidebar", {"parentId": 1})) }}
             {% endblock %}
         </div>
-        <div id="content" class=" col s9">
+        <div id="content" class=" col l9 s12">
             {% block subPage_content %}
 
             {% endblock %}

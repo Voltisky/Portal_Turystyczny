@@ -1,0 +1,23 @@
+frontend:
+    user:
+        panel: Panel użytkownika
+        object:
+            list:
+                title: Lista obiektów turystycznych
+            show: Pokaż
+            edit:
+                title: Edytuj
+                defaults: Informacje podstawowe
+                geolocalization: Geolokalizacja
+                address: Adres
+                media: Media
+            delete: Usuń
+            create:
+                title: Dodaj obiekt turystyczny
+            validation:
+                success: Poprawnie zapisano zmiany.
+                error: Błędnie wypełniony formularz.
+form:
+    label_kategoria_glowna: Kategoria główna
+    label_kategorie: Kategorie
+

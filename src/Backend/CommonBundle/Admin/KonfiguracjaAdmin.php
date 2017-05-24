@@ -48,13 +48,7 @@ class KonfiguracjaAdmin extends Admin {
         $link_parameters = array();
         $fields = array(
             "nazwa" => array("field_type" => "text"),
-            "opis" => array("field_type" => "ckeditor"),
-            "main" => array(
-                'field_type' => 'choice',
-                'choices' => array(
-                    0 => 'Nie',
-                    1 => 'Tak',
-                ))
+            "opis" => array("field_type" => "ckeditor")
         );
 
         $formMapper->tab("Informacje szczegółowe")

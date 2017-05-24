@@ -23,13 +23,13 @@
 	    </cascade>
 	</one-to-many>
 
-	<one-to-many field="konfiguracja_logo" target-entity="\Backend\CommonBundle\Entity\Konfiguracja" mapped-by="media_konfiguracja_logo">
+	<one-to-many field="konfiguracja_logo" target-entity="\Backend\CommonBundle\Entity\Konfiguracja" mapped-by="logo">
 	    <cascade>
 		<cascade-all/>
 	    </cascade>
 	</one-to-many>
 
-		<one-to-many field="konfiguracja_default_image" target-entity="\Backend\CommonBundle\Entity\Konfiguracja" mapped-by="media_konfiguracja_default_image">
+		<one-to-many field="konfiguracja_default_image" target-entity="\Backend\CommonBundle\Entity\Konfiguracja" mapped-by="default_image">
 			<cascade>
 				<cascade-all/>
 			</cascade>

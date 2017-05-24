@@ -5,16 +5,24 @@ list:
     label_nazwa: Nazwa
     label_opis: Opis
     label_main: Główny
+    label_logo: Logo
+    label_default_image: Domyślny obraz
 form:
     label_nazwa: Nazwa
     label_opis: Opis
     label_main: Główny
+    label_logo: Logo
+    label_default_image: Domyślny obraz
 show:
     label_nazwa: Nazwa
     label_opis: Opis
     label_main: Główny
+    label_logo: Logo
+    label_default_image: Domyślny obraz
 filter:
     label_nazwa: Nazwa
     label_opis: Opis
     label_main: Główny
+    label_logo: Logo
+    label_default_image: Domyślny obraz
     

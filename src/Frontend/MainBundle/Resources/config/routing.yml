@@ -5,6 +5,8 @@ frontend_main_homepage:
 frontend_main_homepage_lang:
     path:     /{_locale}/
     defaults: { _controller: FrontendMainBundle:Default:index }
+    requirements:
+        _locale: ^(?!js)([a-z]{2})$
 
 frontend_main_change_locale:
     path:     /lang/change/{_locale}
@@ -15,5 +17,7 @@ frontend_main_homepage2:
     defaults: { _controller: FrontendMainBundle:Default:index2 }
 
 frontend_login_form:
-    path:     /{_locale}/login
+    path:     /{_locale}/login/
     defaults: { _controller: FrontendMainBundle:Security:login }
+    requirements:
+        _locale: ^(?!js)([a-z]{2})$

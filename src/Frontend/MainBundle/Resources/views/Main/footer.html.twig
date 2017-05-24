@@ -1,15 +1,36 @@
-<footer>
+{#<footer>#}
     {# Mapa #}
+    {#{{ render(controller('FrontendMapaBundle:Default:getFrontendMapa', { })) }}#}
+    {#<div class="mdl-mini-footer">#}
+	{#<div class="mdl-mini-footer__left-section">#}
+	    {#<div class="mdl-logo">Simple portal website</div>#}
+	{#</div>#}
+	{#<div class="mdl-mini-footer__right-section">#}
+	    {#<ul class="mdl-mini-footer__link-list">#}
+		{#<li><a href="#">Help</a></li>#}
+		{#<li><a href="#">Privacy & Terms</a></li>#}
+	    {#</ul>#}
+	{#</div>#}
+    {#</div>#}
+{#</footer>#}
+
     {{ render(controller('FrontendMapaBundle:Default:getFrontendMapa', { })) }}
-    <div class="mdl-mini-footer">
-	<div class="mdl-mini-footer__left-section">
-	    <div class="mdl-logo">Simple portal website</div>
+<footer class="page-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col l6 s12">
+				<h5 class="white-text">{{ konfiguracja.nazwa }}</h5>
+				<p class="grey-text text-lighten-4">{{ konfiguracja.opis|striptags }}</p>
+			</div>
+			<div class="col l4 offset-l2 s12">
+				<h5 class="white-text">Menu</h5>
+                {{ knp_menu_render(menuItem, {'template': 'FrontendMainBundle:Menu:menu_footer.html.twig'}) }}
+			</div>
+		</div>
 	</div>
-	<div class="mdl-mini-footer__right-section">
-	    <ul class="mdl-mini-footer__link-list">
-		<li><a href="#">Help</a></li>
-		<li><a href="#">Privacy & Terms</a></li>
-	    </ul>
+	<div class="footer-copyright">
+		<div class="container">
+			© 2017 Karol Włodek
+		</div>
 	</div>
-    </div>
 </footer>

@@ -1,0 +1,21 @@
+Backend\PoiBundle\Entity\Poi:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: nazwa
+    properties:
+        nazwa:
+            - NotBlank: ~
+            - Length:
+                min: 3
+        poi_category:
+            - NotNull: ~
+        wgs_x:
+            - NotBlank: ~
+        wgs_y:
+            - NotBlank: ~
+        email:
+            - Email:
+                checkMX: true
+        www:
+            - Url: { protocols: [http, https, ftp], checkDNS: true }
+        nrtel:
+            - Regex: '/^[0-9]{3}-[0-9]{3}-[0-9]{3}/'

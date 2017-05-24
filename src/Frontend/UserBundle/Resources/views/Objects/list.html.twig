@@ -1,0 +1,24 @@
+{% extends "@FrontendUser/User/panel.html.twig" %}
+
+{% block subPage_content %}
+    {% include "@FrontendMain/External/heading.html.twig" with {"title": "frontend.user.object.list.title"|trans} %}
+
+    {% block listItems %}
+        <div class="collection">
+            {% for item in items %}
+                <div class="collection-item avatar">
+                    <i class="circle {{ random(["red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey"]) }} darken-{{ random([1,2,3,4]) }}">{{ item.nazwa|first|upper }}</i>
+                    <span class="title">
+                        <a href="{{ path("frontend_user_object_list_edit", {"id": item.id}) }}">{{ item.nazwa }}</a>
+                    </span>
+                    <p style="padding-top:30px;">{{ item.opis|striptags|truncate(255) }}</p>
+                    <div class="secondary-content ">
+                        <a href="{{ item|getPath }}" class="btn">{{ "frontend.user.object.show"|trans }}</a>
+                        <a href="{{ path("frontend_user_object_list_edit", {"id": item.id}) }}" class="btn">{{ "frontend.user.object.edit.title"|trans }}</a>
+                        <a href="{{ path("frontend_user_object_list_delete", {"id": item.id}) }}" class="btn">{{ "frontend.user.object.delete"|trans }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
+{% endblock %}

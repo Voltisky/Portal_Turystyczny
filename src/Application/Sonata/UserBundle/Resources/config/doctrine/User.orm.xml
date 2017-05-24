@@ -15,7 +15,12 @@
                 <cascade-all/>
             </cascade>
         </one-to-many>
-        <one-to-many field="poi_created" target-entity="\Backend\PoiBundle\Entity\Poi" mapped-by="user">
+        <one-to-many field="poi_created" target-entity="\Backend\PoiBundle\Entity\Poi" mapped-by="created_by_user">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+        <one-to-many field="poi_modified" target-entity="\Backend\PoiBundle\Entity\Poi" mapped-by="modified_by_user">
             <cascade>
                 <cascade-all/>
             </cascade>

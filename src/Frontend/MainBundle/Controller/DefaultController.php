@@ -9,9 +9,16 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
+//        $konfiguracja = $em->createQuery("SELECT k, l, di FROM BackendCommonBundle:Konfiguracja k "
+//            . "LEFT JOIN k.logo l "
+//            . "LEFT JOIN k.default_image di ")
+//            ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
+//            ->getResult();
+//        dump($konfiguracja);
+//        exit;
         $loggedIn = $this->get("request")->get("loggedIn");
-        if($loggedIn)
-        {
+        if ($loggedIn) {
             $this->addFlash("success", $this->get("translator")->trans("frontend.main.user.success"));
         }
 

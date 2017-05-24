@@ -92054,6 +92054,7 @@ function Map() {
     };
 
     base.features = new ol.Collection();
+    base.featuresOverlay = new ol.Collection();
 
     base.layers = {
         featureLayer: new ol.layer.Vector({
@@ -92065,7 +92066,7 @@ function Map() {
             }
         }),
         featureOverlay: new ol.layer.Vector({
-            source: new ol.source.Vector({features: base.features}),
+            source: new ol.source.Vector({features: base.featuresOverlay}),
             style: new ol.style.Style({
                 fill: new ol.style.Fill({
                     color: 'rgba(255, 255, 255, 0.2)'
@@ -92127,22 +92128,23 @@ function Map() {
             base.mapObject.getView().fit(base.layers.featureOverlay.getSource().getExtent(), base.mapObject.getSize());
         }
 
-        if(base.options.scrollable == false)
-        {
+        if (base.options.scrollable == false) {
             // Mouse scroll off
-            base.mapObject.getInteractions().forEach(function (interaction)
-            {
-                if (interaction instanceof ol.interaction.MouseWheelZoom)
-                {
+            base.mapObject.getInteractions().forEach(function (interaction) {
+                if (interaction instanceof ol.interaction.MouseWheelZoom) {
                     interaction.setActive(false);
                 }
             }, this);
         }
     };
 
+    base.fitToExtent = function (extent) {
+        base.mapObject.getView().fit(extent, base.mapObject.getSize());
+    };
+
     base.initializeDrawning = function () {
         var modify = new ol.interaction.Modify({
-            features: base.features,
+            features: base.featuresOverlay,
             // the SHIFT key must be pressed to delete vertices, so
             // that new vertices can be drawn at the same position
             // of existing vertices
@@ -92155,12 +92157,12 @@ function Map() {
         base.mapObject.addInteraction(modify);
 
         var draw = new ol.interaction.Draw({
-            features: base.features,
+            features: base.featuresOverlay,
             type: "LineString"
         });
         base.mapObject.addInteraction(draw);
-        base.features.on("add", function (type) {
-            base.options.onDrawEnd && base.options.onDrawEnd(base.features);
+        base.featuresOverlay.on("add", function (type) {
+            base.options.onDrawEnd && base.options.onDrawEnd(base.featuresOverlay);
         });
 
     };
@@ -92182,5 +92184,15 @@ function Map() {
     base.centerMap = function (coordinate) {
         base.mapObject.getView().setCenter(base.getMapCoordinate(coordinate));
     };
+
+    base.drawFeature = function (coordinate, clearLayer) {
+        if (clearLayer && clearLayer === true) {
+            base.layers.featureLayer.getSource().clear();
+        }
+
+        base.layers.featureLayer.getSource().addFeature(new ol.Feature({
+            type: 'icon',
+            geometry: new ol.geom.Point(coordinate)
+        }));
+    };
 }
-;

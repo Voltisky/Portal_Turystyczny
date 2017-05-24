@@ -14,7 +14,7 @@
             {% endfor %}
         </div>
         <div id="latest" class="col s12 mdl-grid row">
-            {% for item in mostRead %}
+            {% for item in latest %}
                 {% include "FrontendPoiBundle:Poi:poi_card_half.html.twig" with {'item': item} %}
             {% endfor %}
         </div>

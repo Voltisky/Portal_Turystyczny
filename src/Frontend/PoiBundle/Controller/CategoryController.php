@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CategoryController extends Controller
 {
-    public function getCategorySidebarAction($parentId)
+    public function getCategorySidebarAction($parentId, $currentId = 0)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -47,7 +47,7 @@ class CategoryController extends Controller
             $categoriesById[$c->getParent()->getId()]["childrens"][] = $c->getId();
         }
 
-        return $this->render("FrontendPoiBundle:Category:sidebar.html.twig", array("categories" => $categoriesById, "parentId" => $parentId));
+        return $this->render("FrontendPoiBundle:Category:sidebar.html.twig", array("categories" => $categoriesById, "parentId" => $parentId, "currentId" => $currentId));
     }
 
     private function generateFormCategory($categoryId)
@@ -55,11 +55,11 @@ class CategoryController extends Controller
         $tr = $this->get('translator');
         $form = $this->createFormBuilder(null)
             ->add('name', TextType::class)
-            ->add('address', EntityType::class, array(
-                "class" => 'Backend\AdministracyjneBundle\Entity\Adres',
-                "multiple" => true,
-                "required" => false,
-            ))
+//            ->add('address', EntityType::class, array(
+//                "class" => 'Backend\AdministracyjneBundle\Entity\Adres',
+//                "multiple" => true,
+//                "required" => false,
+//            ))
             ->add('categories', EntityType::class, array(
                 "class" => 'Application\Sonata\ClassificationBundle\Entity\Category',
                 'query_builder' => function (EntityRepository $er) use ($categoryId) {

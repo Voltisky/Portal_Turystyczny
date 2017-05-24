@@ -48,8 +48,13 @@ class DefaultController extends Controller
                 . "LEFT JOIN pm.media m "
                 . "LEFT JOIN p.adres a "
                 . "LEFT JOIN p.user u "
-                . "ORDER BY p.updated_at DESC ")
+                . "WHERE p.hits > 0 "
+                . "ORDER BY p.hits DESC ")
                 ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
+                ->setHint(
+                \Gedmo\Translatable\TranslatableListener::HINT_FALLBACK,
+                1 // fallback to default values in case if record is not translated
+            )
                 ->setMaxResults($maxItems)
                 ->getResult();
 
@@ -123,5 +128,35 @@ class DefaultController extends Controller
 
         $htmlBody = $this->render("@FrontendPoi/Poi/nearItems.html.twig", array("items" => $items));
         return new Response(json_encode(array("coordinates" => $coordinates, "content" => $htmlBody->getContent())));
+    }
+
+    public function getPoiItemAction($id, $slug)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $item = null;
+        $similarItems = array();
+        try {
+            $item = $em->createQuery("SELECT p, pm, m, a, u FROM BackendPoiBundle:Poi p "
+                . "LEFT JOIN p.poi_media pm "
+                . "LEFT JOIN pm.media m "
+                . "LEFT JOIN p.adres a "
+                . "LEFT JOIN p.user u "
+                . "WHERE p.id = :id AND p.alias = :slug ")
+                ->setParameter("id", $id)
+                ->setParameter("slug", $slug)
+                ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
+                ->getSingleResult();
+
+            $item->setHits($item->getHits() + 1);
+            $em->merge($item);
+            $em->flush();
+
+//            $similarItems = $this->getSimilarItems($slug, $item->getId());
+        } catch (\Exception $e) {
+//            throw new NotFoundHttpException();
+            throw $e;
+        }
+
+        return $this->render("@FrontendPoi/Poi/poiDetails.html.twig", array("item" => $item, "similarItems" => $similarItems));
     }
 }

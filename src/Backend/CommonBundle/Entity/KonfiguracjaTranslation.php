@@ -34,7 +34,13 @@ class KonfiguracjaTranslation extends AbstractPersonalTranslation {
      */
     protected $object;
 
-
+    public function __construct($locale = null, $field = null, $content = null)
+    {
+        $this->setLocale($locale);
+        $this->setField($field);
+        $this->setContent($content);
+    }
+	
     /**
      * Get id
      *

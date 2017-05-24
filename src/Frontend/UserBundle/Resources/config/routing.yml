@@ -1,3 +1,19 @@
-frontend_user_homepage:
-    path:     /
-    defaults: { _controller: FrontendUserBundle:Default:index }
+frontend_user_panel:
+    path:     /{_locale}/panel/
+    defaults: { _controller: FrontendUserBundle:Default:panel }
+
+frontend_user_object_list:
+    path:     /{_locale}/panel/object_list/
+    defaults: { _controller: FrontendUserBundle:Default:objectList }
+
+frontend_user_object_list_create:
+    path:     /{_locale}/panel/object_list/create
+    defaults: { _controller: FrontendUserBundle:Default:createObject }
+
+frontend_user_object_list_edit:
+    path:     /{_locale}/panel/object_list/{id}/edit
+    defaults: { _controller: FrontendUserBundle:Default:editObject }
+
+frontend_user_object_list_delete:
+    path:     /{_locale}/panel/object_list/{id}/delete
+    defaults: { _controller: FrontendUserBundle:Default:deleteObject }

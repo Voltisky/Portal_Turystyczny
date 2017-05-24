@@ -93,20 +93,17 @@ function Map() {
             base.mapObject.getView().fit(base.layers.featureOverlay.getSource().getExtent(), base.mapObject.getSize());
         }
 
-        if(base.options.scrollable == false)
-        {
+        if (base.options.scrollable == false) {
             // Mouse scroll off
-            base.mapObject.getInteractions().forEach(function (interaction)
-            {
-                if (interaction instanceof ol.interaction.MouseWheelZoom)
-                {
+            base.mapObject.getInteractions().forEach(function (interaction) {
+                if (interaction instanceof ol.interaction.MouseWheelZoom) {
                     interaction.setActive(false);
                 }
             }, this);
         }
     };
 
-    base.fitToExtent = function(extent){
+    base.fitToExtent = function (extent) {
         base.mapObject.getView().fit(extent, base.mapObject.getSize());
     };
 
@@ -120,6 +117,10 @@ function Map() {
                 return ol.events.condition.shiftKeyOnly(event) &&
                     ol.events.condition.singleClick(event);
             }
+        });
+
+        modify.on("modifyend", function () {
+            base.options.onDrawEnd && base.options.onDrawEnd(base.featuresOverlay);
         });
 
         base.mapObject.addInteraction(modify);
@@ -152,5 +153,15 @@ function Map() {
     base.centerMap = function (coordinate) {
         base.mapObject.getView().setCenter(base.getMapCoordinate(coordinate));
     };
+
+    base.drawFeature = function (coordinate, clearLayer) {
+        if (clearLayer && clearLayer === true) {
+            base.layers.featureLayer.getSource().clear();
+        }
+
+        base.layers.featureLayer.getSource().addFeature(new ol.Feature({
+            type: 'icon',
+            geometry: new ol.geom.Point(coordinate)
+        }));
+    };
 }
-;

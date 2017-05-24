@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: doctrine_extensions.yml }
     - { resource: @BackendPoiBundle/Resources/config/admin.yml }
     - { resource: @BackendAdministracyjneBundle/Resources/config/admin.yml }
     - { resource: @ApplicationSonataUserBundle/Resources/config/admin.xml }
@@ -40,7 +41,7 @@ framework:
         strict_requirements: ~
     form: ~
     csrf_protection: ~
-    validation: { enable_annotations: true }
+    validation: { enabled: true, enable_annotations: true } # TODO Pokazać
     #serializer: { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -74,7 +75,9 @@ sonata_admin:
             Konfiguracja: ~
             POI i Szlaki: ~           
             sonata_categories:       
-                label_catalogue: SonataClassificationBundle           
+               label_catalogue: SonataClassificationBundle
+               items:
+                   - sonata.classification.admin.category
             sonata_user:
                 label_catalogue: SonataUserBundle
             sonata_media:
@@ -124,6 +127,8 @@ sonata_formatter:
 # Doctrine Configuration
 stof_doctrine_extensions:
     default_locale: '%locale%'
+    translation_fallback: true
+    persist_default_translation: true
     orm:
         default:
             timestampable: true
@@ -132,7 +137,7 @@ stof_doctrine_extensions:
 
 a2lix_translation_form:
     locales: [en, de]       # [1]
-    default_required: true          # [2]
+    default_required: false          # [2]
     manager_registry: doctrine      # [3]
     templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]
 
@@ -208,8 +213,8 @@ sonata_media:
               - sonata.media.provider.image
 
             formats:
-                preview: { width: 100, quality: 100}
-                wide:    { width: 820, quality: 100}
+                small: { width: 100 , quality: 100}
+                big:   { width: 820 , quality: 100}
         default:  # the default context is mandatory
             providers:
                 - sonata.media.provider.dailymotion

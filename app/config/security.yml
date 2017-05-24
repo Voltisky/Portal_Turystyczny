@@ -47,11 +47,11 @@ security:
             context:             user
             form_login:
                 provider:       fos_userbundle
-                login_path:     /login
+                login_path:     frontend_login_form
                 use_forward:    false
                 check_path:     /login_check
-                failure_path:   null
-                always_use_default_target_path: true
+                failure_path:   /
+                always_use_default_target_path: false
                 use_referer: true
             logout:             true
             anonymous:          true
@@ -71,6 +71,7 @@ security:
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/.*/panel/, roles: ROLE_USER }
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:

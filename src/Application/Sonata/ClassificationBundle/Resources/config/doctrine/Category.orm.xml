@@ -17,7 +17,7 @@
             <generator strategy="AUTO"/>
         </id>
 
-        <one-to-many field="poi_category" target-entity="\Backend\PoiBundle\Entity\PoiCategory" mapped-by="media">
+        <one-to-many field="poi_category" target-entity="\Backend\PoiBundle\Entity\PoiCategory" mapped-by="category">
             <cascade>
                 <cascade-all/>
             </cascade>

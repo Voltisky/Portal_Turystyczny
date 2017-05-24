@@ -57,7 +57,7 @@ Backend\PoiBundle\Entity\Etap:
                   onDelete: CASCADE
       szlak:
           targetEntity: Backend\PoiBundle\Entity\Szlak
-          inversedBy: etap_szlak
+          inversedBy: etapy_szlak
           cascade: ["persist"]
           joinColumns:
               szlak_id:

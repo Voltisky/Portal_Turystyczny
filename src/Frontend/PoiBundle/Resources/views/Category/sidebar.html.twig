@@ -16,15 +16,15 @@
 {% endblock %}
 
 {% block sidebar_items %}
-    {{ macros.tree(categories, baseCategory, 0) }}
+    {{ macros.tree(categories, baseCategory, 0, currentId) }}
 {% endblock %}
 
-{% macro tree(fullCollection, categoryCollection, depth) %}
+{% macro tree(fullCollection, categoryCollection, depth, currentId) %}
     {% for categoryId in categoryCollection["childrens"] %}
-        {% include "FrontendPoiBundle:Category:sidebar_category_item.html.twig" with {"category": fullCollection[categoryId]["data"], "depth": depth + 1} %}
+        {% include "FrontendPoiBundle:Category:sidebar_category_item.html.twig" with {"category": fullCollection[categoryId]["data"], "depth": depth + 1, "currentId": currentId} %}
         {% if fullCollection[categoryId]["childrens"] is defined %}
             {% import _self as macros %}
-            {{ macros.tree(fullCollection, fullCollection[categoryId], depth + 1) }}
+            {{ macros.tree(fullCollection, fullCollection[categoryId], depth + 1, currentId) }}
         {% endif %}
     {% endfor %}
 {% endmacro %}

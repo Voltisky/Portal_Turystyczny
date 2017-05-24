@@ -1,5 +1,13 @@
 frontend:
+    w_poblizu:
+        processing:
+            get_position: Pobieranie pozycji na mapie
+            not_found: Nie znaleziono pozycji na mapie
+    szlaki:
+        title: Lista szlaków
     poi:
+        most_read: Najczęściej czytane
+        latest_added: Ostatnio dodane
         latest: Aktualności
         local_informations: Informacje lokalne
         read_more: Czytaj więcej
@@ -21,5 +29,6 @@ frontend:
     map:
         title: Mapa
     category:
+        title: Lista obiektów w kategorii
         list:
             title: Lista kategorii

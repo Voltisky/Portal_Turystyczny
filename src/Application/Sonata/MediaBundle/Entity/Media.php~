@@ -240,4 +240,43 @@ class Media extends BaseMedia
     {
         return $this->etapy;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $default_image;
+
+
+    /**
+     * Add defaultImage
+     *
+     * @param \Backend\CommonBundle\Entity\Konfiguracja $defaultImage
+     *
+     * @return Media
+     */
+    public function addDefaultImage(\Backend\CommonBundle\Entity\Konfiguracja $defaultImage)
+    {
+        $this->default_image[] = $defaultImage;
+
+        return $this;
+    }
+
+    /**
+     * Remove defaultImage
+     *
+     * @param \Backend\CommonBundle\Entity\Konfiguracja $defaultImage
+     */
+    public function removeDefaultImage(\Backend\CommonBundle\Entity\Konfiguracja $defaultImage)
+    {
+        $this->default_image->removeElement($defaultImage);
+    }
+
+    /**
+     * Get defaultImage
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDefaultImage()
+    {
+        return $this->default_image;
+    }
 }

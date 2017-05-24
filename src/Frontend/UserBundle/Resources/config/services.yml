@@ -1,4 +1,4 @@
 services:
-#    frontend_user.example:
-#        class: Frontend\UserBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    app.user.service:
+        class: Frontend\UserBundle\Services\UserService
+        arguments: [ @service_container ]

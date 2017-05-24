@@ -26,7 +26,7 @@
 
 body {
     /*overflow:hidden !important;*/
-    color: rgb(178, 255, 89);
+    color: #004D40;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     background-color: rgb(244, 246, 233);
@@ -43,6 +43,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 200px;
+}
+
+.page-footer {
+    background-color: #009688;
 }
 
 .portal-header .mdl-layout__header-row {
@@ -100,7 +104,7 @@ body {
     -ms-flex: 1;
     flex: 1;
     line-height: 42px;
-    color: rgb(178, 255, 89);
+    color: #fff;
     font-weight: 300;
     position: relative;
     transition-duration: 0.5s;
@@ -121,7 +125,7 @@ body {
     bottom: 0;
     position: absolute;
     transition-duration: 0.5s;
-    background-color: rgba(178, 255, 89, 0.5);
+    background-color: #009688;
 }
 
 .portal-navigation-row .current:after, .portal-navigation-row .mdl-navigation__link:hover:after {
@@ -130,7 +134,7 @@ body {
     height: 2px;
     position: absolute;
     bottom: 0;
-    background-color: rgba(178, 255, 89, 0.5);
+    background-color: #009688;
     left: 5%;
 }
 
@@ -215,10 +219,10 @@ img.article-image {
     margin: auto;
 }
 
-footer {
-    background-image: url(images/footer-background.png);
-    background-size: cover;
-}
+/*footer {*/
+    /*background-image: url(images/footer-background.png);*/
+    /*background-size: cover;*/
+/*}*/
 
 .portal-menu {
     position: absolute;
@@ -244,12 +248,12 @@ footer {
     width: 100%;
     margin: 8px;
     font-weight: 300;
-    color: rgb(76, 175, 80);
+    color: #004D40;
 }
 
 .portal-heading .portal-heading-title {
     text-align: center;
-    border-bottom: 1px solid rgb(76, 175, 80);
+    border-bottom: 1px solid #004D40;
 }
 
 .portal-mapa {
@@ -265,11 +269,11 @@ footer {
 }
 
 .tabs .tab a:hover, .tabs .tab a.active, .tabs .tab a {
-    color: rgb(76, 175, 80);
+    color: #00434d;
 }
 
 .tabs .indicator {
-    background-color: rgb(76, 175, 80);
+    background-color: #004D40;
 
 }
 
@@ -378,6 +382,18 @@ nav {
     text-transform: uppercase;
 }
 
+#drawer .mdl-navigation {
+    display: block;
+    height: auto;
+}
 
+#drawer .mdl-navigation__link {
+    width: 100%;
+    display: block;
+    float: none;
+    vertical-align: middle;
+    padding: 10px;
+    color: #000 !important;
+}
 
 /* [END] Portal Styles*/

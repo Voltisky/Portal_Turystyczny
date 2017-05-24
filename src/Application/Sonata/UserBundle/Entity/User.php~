@@ -117,4 +117,43 @@ class User extends BaseUser
     {
         return $this->poi_created;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $poi_modified;
+
+
+    /**
+     * Add poiModified
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poiModified
+     *
+     * @return User
+     */
+    public function addPoiModified(\Backend\PoiBundle\Entity\Poi $poiModified)
+    {
+        $this->poi_modified[] = $poiModified;
+
+        return $this;
+    }
+
+    /**
+     * Remove poiModified
+     *
+     * @param \Backend\PoiBundle\Entity\Poi $poiModified
+     */
+    public function removePoiModified(\Backend\PoiBundle\Entity\Poi $poiModified)
+    {
+        $this->poi_modified->removeElement($poiModified);
+    }
+
+    /**
+     * Get poiModified
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPoiModified()
+    {
+        return $this->poi_modified;
+    }
 }

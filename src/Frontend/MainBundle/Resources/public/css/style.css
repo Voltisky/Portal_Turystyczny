@@ -20,6 +20,10 @@ body {
     min-height: 200px;
 }
 
+.page-footer {
+    background-color: #009688;
+}
+
 .portal-header .mdl-layout__header-row {
     padding: 0;
     -webkit-justify-content: center;
@@ -190,10 +194,10 @@ img.article-image {
     margin: auto;
 }
 
-footer {
-    background-image: url(images/footer-background.png);
-    background-size: cover;
-}
+/*footer {*/
+    /*background-image: url(images/footer-background.png);*/
+    /*background-size: cover;*/
+/*}*/
 
 .portal-menu {
     position: absolute;
@@ -353,6 +357,18 @@ nav {
     text-transform: uppercase;
 }
 
+#drawer .mdl-navigation {
+    display: block;
+    height: auto;
+}
 
+#drawer .mdl-navigation__link {
+    width: 100%;
+    display: block;
+    float: none;
+    vertical-align: middle;
+    padding: 10px;
+    color: #000 !important;
+}
 
 /* [END] Portal Styles*/
