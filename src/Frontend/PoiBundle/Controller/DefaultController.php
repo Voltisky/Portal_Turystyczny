@@ -52,9 +52,9 @@ class DefaultController extends Controller
                 . "ORDER BY p.hits DESC ")
                 ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
                 ->setHint(
-                \Gedmo\Translatable\TranslatableListener::HINT_FALLBACK,
-                1 // fallback to default values in case if record is not translated
-            )
+                    \Gedmo\Translatable\TranslatableListener::HINT_FALLBACK,
+                    1 // fallback to default values in case if record is not translated
+                )
                 ->setMaxResults($maxItems)
                 ->getResult();
 
@@ -144,19 +144,26 @@ class DefaultController extends Controller
                 . "WHERE p.id = :id AND p.alias = :slug ")
                 ->setParameter("id", $id)
                 ->setParameter("slug", $slug)
-                ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, 'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
+                ->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+                    'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker')
                 ->getSingleResult();
 
+            // region ...
             $item->setHits($item->getHits() + 1);
             $em->merge($item);
             $em->flush();
+            // endregion
 
-//            $similarItems = $this->getSimilarItems($slug, $item->getId());
         } catch (\Exception $e) {
-//            throw new NotFoundHttpException();
+            //region ...
             throw $e;
+            //endregion
         }
 
-        return $this->render("@FrontendPoi/Poi/poiDetails.html.twig", array("item" => $item, "similarItems" => $similarItems));
+        //region ...
+        return $this->render("@FrontendPoi/Poi/poiDetails.html.twig", array(
+            "item" => $item,
+            "similarItems" => $similarItems));
+        //endregion
     }
 }

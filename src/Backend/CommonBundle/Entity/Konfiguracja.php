@@ -38,6 +38,7 @@ class Konfiguracja
         return $this->id;
     }
 
+    // ...
     /**
      * Set nazwa
      *

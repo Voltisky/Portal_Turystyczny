@@ -5,7 +5,8 @@ namespace Backend\PoiBundle\Entity;
 /**
  * Poi
  */
-class Poi {
+class Poi
+{
 
     /**
      * @var integer
@@ -205,11 +206,17 @@ class Poi {
     /**
      * Constructor
      */
-    public function __construct() {
-	$this->poi_media = new \Doctrine\Common\Collections\ArrayCollection();
-	$this->poi_category = new \Doctrine\Common\Collections\ArrayCollection();
-	$this->etapy_poi = new \Doctrine\Common\Collections\ArrayCollection();
-	$this->translations = new \Doctrine\Common\Collections\ArrayCollection();
+    public function __construct()
+    {
+        $this->poi_media = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->poi_category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etapy_poi = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getNazwa();
     }
 
     /**
@@ -217,8 +224,9 @@ class Poi {
      *
      * @return integer
      */
-    public function getId() {
-	return $this->id;
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -228,10 +236,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setNazwa($nazwa) {
-	$this->nazwa = $nazwa;
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -239,8 +248,9 @@ class Poi {
      *
      * @return string
      */
-    public function getNazwa() {
-	return $this->nazwa;
+    public function getNazwa()
+    {
+        return $this->nazwa;
     }
 
     /**
@@ -250,10 +260,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setOpis($opis) {
-	$this->opis = $opis;
+    public function setOpis($opis)
+    {
+        $this->opis = $opis;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -261,8 +272,9 @@ class Poi {
      *
      * @return string
      */
-    public function getOpis() {
-	return $this->opis;
+    public function getOpis()
+    {
+        return $this->opis;
     }
 
     /**
@@ -272,10 +284,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setStatusPoi($statusPoi) {
-	$this->status_poi = $statusPoi;
+    public function setStatusPoi($statusPoi)
+    {
+        $this->status_poi = $statusPoi;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -283,8 +296,9 @@ class Poi {
      *
      * @return string
      */
-    public function getStatusPoi() {
-	return $this->status_poi;
+    public function getStatusPoi()
+    {
+        return $this->status_poi;
     }
 
     /**
@@ -294,10 +308,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setPolozenie($polozenie) {
-	$this->polozenie = $polozenie;
+    public function setPolozenie($polozenie)
+    {
+        $this->polozenie = $polozenie;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -305,8 +320,9 @@ class Poi {
      *
      * @return string
      */
-    public function getPolozenie() {
-	return $this->polozenie;
+    public function getPolozenie()
+    {
+        return $this->polozenie;
     }
 
     /**
@@ -316,10 +332,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setOcenaAvg($ocenaAvg) {
-	$this->ocena_avg = $ocenaAvg;
+    public function setOcenaAvg($ocenaAvg)
+    {
+        $this->ocena_avg = $ocenaAvg;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -327,8 +344,9 @@ class Poi {
      *
      * @return integer
      */
-    public function getOcenaAvg() {
-	return $this->ocena_avg;
+    public function getOcenaAvg()
+    {
+        return $this->ocena_avg;
     }
 
     /**
@@ -338,10 +356,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setHits($hits) {
-	$this->hits = $hits;
+    public function setHits($hits)
+    {
+        $this->hits = $hits;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -349,8 +368,9 @@ class Poi {
      *
      * @return integer
      */
-    public function getHits() {
-	return $this->hits;
+    public function getHits()
+    {
+        return $this->hits;
     }
 
     /**
@@ -360,10 +380,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setAlias($alias) {
-	$this->alias = $alias;
+    public function setAlias($alias)
+    {
+        $this->alias = $alias;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -371,8 +392,9 @@ class Poi {
      *
      * @return string
      */
-    public function getAlias() {
-	return $this->alias;
+    public function getAlias()
+    {
+        return $this->alias;
     }
 
     /**
@@ -382,10 +404,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setUlica($ulica) {
-	$this->ulica = $ulica;
+    public function setUlica($ulica)
+    {
+        $this->ulica = $ulica;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -393,8 +416,9 @@ class Poi {
      *
      * @return string
      */
-    public function getUlica() {
-	return $this->ulica;
+    public function getUlica()
+    {
+        return $this->ulica;
     }
 
     /**
@@ -404,10 +428,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setNrdomu($nrdomu) {
-	$this->nrdomu = $nrdomu;
+    public function setNrdomu($nrdomu)
+    {
+        $this->nrdomu = $nrdomu;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -415,8 +440,9 @@ class Poi {
      *
      * @return string
      */
-    public function getNrdomu() {
-	return $this->nrdomu;
+    public function getNrdomu()
+    {
+        return $this->nrdomu;
     }
 
     /**
@@ -426,10 +452,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setNrtel($nrtel) {
-	$this->nrtel = $nrtel;
+    public function setNrtel($nrtel)
+    {
+        $this->nrtel = $nrtel;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -437,8 +464,9 @@ class Poi {
      *
      * @return string
      */
-    public function getNrtel() {
-	return $this->nrtel;
+    public function getNrtel()
+    {
+        return $this->nrtel;
     }
 
     /**
@@ -448,10 +476,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setNrfax($nrfax) {
-	$this->nrfax = $nrfax;
+    public function setNrfax($nrfax)
+    {
+        $this->nrfax = $nrfax;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -459,8 +488,9 @@ class Poi {
      *
      * @return string
      */
-    public function getNrfax() {
-	return $this->nrfax;
+    public function getNrfax()
+    {
+        return $this->nrfax;
     }
 
     /**
@@ -470,10 +500,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setEmail($email) {
-	$this->email = $email;
+    public function setEmail($email)
+    {
+        $this->email = $email;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -481,8 +512,9 @@ class Poi {
      *
      * @return string
      */
-    public function getEmail() {
-	return $this->email;
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
@@ -492,10 +524,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWww($www) {
-	$this->www = $www;
+    public function setWww($www)
+    {
+        $this->www = $www;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -503,8 +536,9 @@ class Poi {
      *
      * @return string
      */
-    public function getWww() {
-	return $this->www;
+    public function getWww()
+    {
+        return $this->www;
     }
 
     /**
@@ -514,10 +548,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWwwdod($wwwdod) {
-	$this->wwwdod = $wwwdod;
+    public function setWwwdod($wwwdod)
+    {
+        $this->wwwdod = $wwwdod;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -525,8 +560,9 @@ class Poi {
      *
      * @return string
      */
-    public function getWwwdod() {
-	return $this->wwwdod;
+    public function getWwwdod()
+    {
+        return $this->wwwdod;
     }
 
     /**
@@ -536,10 +572,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWwwdodNazwa($wwwdodNazwa) {
-	$this->wwwdod_nazwa = $wwwdodNazwa;
+    public function setWwwdodNazwa($wwwdodNazwa)
+    {
+        $this->wwwdod_nazwa = $wwwdodNazwa;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -547,8 +584,9 @@ class Poi {
      *
      * @return string
      */
-    public function getWwwdodNazwa() {
-	return $this->wwwdod_nazwa;
+    public function getWwwdodNazwa()
+    {
+        return $this->wwwdod_nazwa;
     }
 
     /**
@@ -558,10 +596,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWwwdodOpis($wwwdodOpis) {
-	$this->wwwdod_opis = $wwwdodOpis;
+    public function setWwwdodOpis($wwwdodOpis)
+    {
+        $this->wwwdod_opis = $wwwdodOpis;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -569,8 +608,9 @@ class Poi {
      *
      * @return string
      */
-    public function getWwwdodOpis() {
-	return $this->wwwdod_opis;
+    public function getWwwdodOpis()
+    {
+        return $this->wwwdod_opis;
     }
 
     /**
@@ -580,10 +620,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setSezonowosc($sezonowosc) {
-	$this->sezonowosc = $sezonowosc;
+    public function setSezonowosc($sezonowosc)
+    {
+        $this->sezonowosc = $sezonowosc;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -591,8 +632,9 @@ class Poi {
      *
      * @return string
      */
-    public function getSezonowosc() {
-	return $this->sezonowosc;
+    public function getSezonowosc()
+    {
+        return $this->sezonowosc;
     }
 
     /**
@@ -602,10 +644,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setDladzieci($dladzieci) {
-	$this->dladzieci = $dladzieci;
+    public function setDladzieci($dladzieci)
+    {
+        $this->dladzieci = $dladzieci;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -613,8 +656,9 @@ class Poi {
      *
      * @return boolean
      */
-    public function getDladzieci() {
-	return $this->dladzieci;
+    public function getDladzieci()
+    {
+        return $this->dladzieci;
     }
 
     /**
@@ -624,10 +668,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setDlaniepelnosprawnych($dlaniepelnosprawnych) {
-	$this->dlaniepelnosprawnych = $dlaniepelnosprawnych;
+    public function setDlaniepelnosprawnych($dlaniepelnosprawnych)
+    {
+        $this->dlaniepelnosprawnych = $dlaniepelnosprawnych;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -635,8 +680,9 @@ class Poi {
      *
      * @return boolean
      */
-    public function getDlaniepelnosprawnych() {
-	return $this->dlaniepelnosprawnych;
+    public function getDlaniepelnosprawnych()
+    {
+        return $this->dlaniepelnosprawnych;
     }
 
     /**
@@ -646,10 +692,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWstep($wstep) {
-	$this->wstep = $wstep;
+    public function setWstep($wstep)
+    {
+        $this->wstep = $wstep;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -657,8 +704,9 @@ class Poi {
      *
      * @return string
      */
-    public function getWstep() {
-	return $this->wstep;
+    public function getWstep()
+    {
+        return $this->wstep;
     }
 
     /**
@@ -668,10 +716,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWgsX($wgsX) {
-	$this->wgs_x = $wgsX;
+    public function setWgsX($wgsX)
+    {
+        $this->wgs_x = $wgsX;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -679,8 +728,9 @@ class Poi {
      *
      * @return float
      */
-    public function getWgsX() {
-	return $this->wgs_x;
+    public function getWgsX()
+    {
+        return $this->wgs_x;
     }
 
     /**
@@ -690,10 +740,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWgsY($wgsY) {
-	$this->wgs_y = $wgsY;
+    public function setWgsY($wgsY)
+    {
+        $this->wgs_y = $wgsY;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -701,8 +752,9 @@ class Poi {
      *
      * @return float
      */
-    public function getWgsY() {
-	return $this->wgs_y;
+    public function getWgsY()
+    {
+        return $this->wgs_y;
     }
 
     /**
@@ -712,10 +764,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWprowadzajacyNazwa($wprowadzajacyNazwa) {
-	$this->wprowadzajacy_nazwa = $wprowadzajacyNazwa;
+    public function setWprowadzajacyNazwa($wprowadzajacyNazwa)
+    {
+        $this->wprowadzajacy_nazwa = $wprowadzajacyNazwa;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -723,8 +776,9 @@ class Poi {
      *
      * @return string
      */
-    public function getWprowadzajacyNazwa() {
-	return $this->wprowadzajacy_nazwa;
+    public function getWprowadzajacyNazwa()
+    {
+        return $this->wprowadzajacy_nazwa;
     }
 
     /**
@@ -734,10 +788,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setWprowadzajacyKontakt($wprowadzajacyKontakt) {
-	$this->wprowadzajacy_kontakt = $wprowadzajacyKontakt;
+    public function setWprowadzajacyKontakt($wprowadzajacyKontakt)
+    {
+        $this->wprowadzajacy_kontakt = $wprowadzajacyKontakt;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -745,8 +800,9 @@ class Poi {
      *
      * @return string
      */
-    public function getWprowadzajacyKontakt() {
-	return $this->wprowadzajacy_kontakt;
+    public function getWprowadzajacyKontakt()
+    {
+        return $this->wprowadzajacy_kontakt;
     }
 
     /**
@@ -756,10 +812,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setZrodlo($zrodlo) {
-	$this->zrodlo = $zrodlo;
+    public function setZrodlo($zrodlo)
+    {
+        $this->zrodlo = $zrodlo;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -767,8 +824,9 @@ class Poi {
      *
      * @return string
      */
-    public function getZrodlo() {
-	return $this->zrodlo;
+    public function getZrodlo()
+    {
+        return $this->zrodlo;
     }
 
     /**
@@ -778,10 +836,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setCreatedAt($createdAt) {
-	$this->created_at = $createdAt;
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -789,8 +848,9 @@ class Poi {
      *
      * @return \DateTime
      */
-    public function getCreatedAt() {
-	return $this->created_at;
+    public function getCreatedAt()
+    {
+        return $this->created_at;
     }
 
     /**
@@ -800,10 +860,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setUpdatedAt($updatedAt) {
-	$this->updated_at = $updatedAt;
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -811,8 +872,9 @@ class Poi {
      *
      * @return \DateTime
      */
-    public function getUpdatedAt() {
-	return $this->updated_at;
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
     }
 
     /**
@@ -822,10 +884,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setSlug($slug) {
-	$this->slug = $slug;
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -833,8 +896,9 @@ class Poi {
      *
      * @return string
      */
-    public function getSlug() {
-	return $this->slug;
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
@@ -844,10 +908,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setSlugMedia($slugMedia) {
-	$this->slug_media = $slugMedia;
+    public function setSlugMedia($slugMedia)
+    {
+        $this->slug_media = $slugMedia;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -855,8 +920,9 @@ class Poi {
      *
      * @return string
      */
-    public function getSlugMedia() {
-	return $this->slug_media;
+    public function getSlugMedia()
+    {
+        return $this->slug_media;
     }
 
     /**
@@ -866,10 +932,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setSlugRodzaj($slugRodzaj) {
-	$this->slug_rodzaj = $slugRodzaj;
+    public function setSlugRodzaj($slugRodzaj)
+    {
+        $this->slug_rodzaj = $slugRodzaj;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -877,8 +944,9 @@ class Poi {
      *
      * @return string
      */
-    public function getSlugRodzaj() {
-	return $this->slug_rodzaj;
+    public function getSlugRodzaj()
+    {
+        return $this->slug_rodzaj;
     }
 
     /**
@@ -888,10 +956,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function addPoiMedia(\Backend\PoiBundle\Entity\PoiMedia $poiMedia) {
-	$this->poi_media[] = $poiMedia;
+    public function addPoiMedia(\Backend\PoiBundle\Entity\PoiMedia $poiMedia)
+    {
+        $this->poi_media[] = $poiMedia;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -899,8 +968,9 @@ class Poi {
      *
      * @param \Backend\PoiBundle\Entity\PoiMedia $poiMedia
      */
-    public function removePoiMedia(\Backend\PoiBundle\Entity\PoiMedia $poiMedia) {
-	$this->poi_media->removeElement($poiMedia);
+    public function removePoiMedia(\Backend\PoiBundle\Entity\PoiMedia $poiMedia)
+    {
+        $this->poi_media->removeElement($poiMedia);
     }
 
     /**
@@ -908,8 +978,9 @@ class Poi {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPoiMedia() {
-	return $this->poi_media;
+    public function getPoiMedia()
+    {
+        return $this->poi_media;
     }
 
     /**
@@ -919,10 +990,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function addPoiCategory(\Backend\PoiBundle\Entity\PoiCategory $poiCategory) {
-	$this->poi_category[] = $poiCategory;
+    public function addPoiCategory(\Backend\PoiBundle\Entity\PoiCategory $poiCategory)
+    {
+        $this->poi_category[] = $poiCategory;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -930,8 +1002,9 @@ class Poi {
      *
      * @param \Backend\PoiBundle\Entity\PoiCategory $poiCategory
      */
-    public function removePoiCategory(\Backend\PoiBundle\Entity\PoiCategory $poiCategory) {
-	$this->poi_category->removeElement($poiCategory);
+    public function removePoiCategory(\Backend\PoiBundle\Entity\PoiCategory $poiCategory)
+    {
+        $this->poi_category->removeElement($poiCategory);
     }
 
     /**
@@ -939,8 +1012,9 @@ class Poi {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getPoiCategory() {
-	return $this->poi_category;
+    public function getPoiCategory()
+    {
+        return $this->poi_category;
     }
 
     /**
@@ -950,10 +1024,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function addEtapyPoi(\Backend\PoiBundle\Entity\Etap $etapyPoi) {
-	$this->etapy_poi[] = $etapyPoi;
+    public function addEtapyPoi(\Backend\PoiBundle\Entity\Etap $etapyPoi)
+    {
+        $this->etapy_poi[] = $etapyPoi;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -961,8 +1036,9 @@ class Poi {
      *
      * @param \Backend\PoiBundle\Entity\Etap $etapyPoi
      */
-    public function removeEtapyPoi(\Backend\PoiBundle\Entity\Etap $etapyPoi) {
-	$this->etapy_poi->removeElement($etapyPoi);
+    public function removeEtapyPoi(\Backend\PoiBundle\Entity\Etap $etapyPoi)
+    {
+        $this->etapy_poi->removeElement($etapyPoi);
     }
 
     /**
@@ -970,8 +1046,9 @@ class Poi {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getEtapyPoi() {
-	return $this->etapy_poi;
+    public function getEtapyPoi()
+    {
+        return $this->etapy_poi;
     }
 
     /**
@@ -981,11 +1058,12 @@ class Poi {
      *
      * @return Poi
      */
-    public function addTranslation(\Backend\PoiBundle\Entity\PoiTranslation $translation) {
-	$translation->setObject($this);
-	$this->translations[] = $translation;
+    public function addTranslation(\Backend\PoiBundle\Entity\PoiTranslation $translation)
+    {
+        $translation->setObject($this);
+        $this->translations[] = $translation;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -993,8 +1071,9 @@ class Poi {
      *
      * @param \Backend\PoiBundle\Entity\PoiTranslation $translation
      */
-    public function removeTranslation(\Backend\PoiBundle\Entity\PoiTranslation $translation) {
-	$this->translations->removeElement($translation);
+    public function removeTranslation(\Backend\PoiBundle\Entity\PoiTranslation $translation)
+    {
+        $this->translations->removeElement($translation);
     }
 
     /**
@@ -1002,8 +1081,9 @@ class Poi {
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTranslations() {
-	return $this->translations;
+    public function getTranslations()
+    {
+        return $this->translations;
     }
 
     /**
@@ -1013,10 +1093,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setAdres(\Backend\AdministracyjneBundle\Entity\Adres $adres = null) {
-	$this->adres = $adres;
+    public function setAdres(\Backend\AdministracyjneBundle\Entity\Adres $adres = null)
+    {
+        $this->adres = $adres;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -1024,8 +1105,9 @@ class Poi {
      *
      * @return \Backend\AdministracyjneBundle\Entity\Adres
      */
-    public function getAdres() {
-	return $this->adres;
+    public function getAdres()
+    {
+        return $this->adres;
     }
 
     /**
@@ -1035,10 +1117,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setCreatedByUser(\Application\Sonata\UserBundle\Entity\User $createdByUser = null) {
-	$this->created_by_user = $createdByUser;
+    public function setCreatedByUser(\Application\Sonata\UserBundle\Entity\User $createdByUser = null)
+    {
+        $this->created_by_user = $createdByUser;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -1046,8 +1129,9 @@ class Poi {
      *
      * @return \Application\Sonata\UserBundle\Entity\User
      */
-    public function getCreatedByUser() {
-	return $this->created_by_user;
+    public function getCreatedByUser()
+    {
+        return $this->created_by_user;
     }
 
     /**
@@ -1057,10 +1141,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null) {
-	$this->user = $user;
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -1068,8 +1153,9 @@ class Poi {
      *
      * @return \Application\Sonata\UserBundle\Entity\User
      */
-    public function getUser() {
-	return $this->user;
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**
@@ -1079,10 +1165,11 @@ class Poi {
      *
      * @return Poi
      */
-    public function setModifiedByUser(\Application\Sonata\UserBundle\Entity\User $modifiedByUser = null) {
-	$this->modified_by_user = $modifiedByUser;
+    public function setModifiedByUser(\Application\Sonata\UserBundle\Entity\User $modifiedByUser = null)
+    {
+        $this->modified_by_user = $modifiedByUser;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -1090,18 +1177,21 @@ class Poi {
      *
      * @return \Application\Sonata\UserBundle\Entity\User
      */
-    public function getModifiedByUser() {
-	return $this->modified_by_user;
+    public function getModifiedByUser()
+    {
+        return $this->modified_by_user;
     }
 
     protected $lang;
 
-    public function setLang($locale) {
-	$this->lang = $locale;
+    public function setLang($locale)
+    {
+        $this->lang = $locale;
     }
 
-    public function getLang() {
-	return $this->lang;
+    public function getLang()
+    {
+        return $this->lang;
     }
 
 }

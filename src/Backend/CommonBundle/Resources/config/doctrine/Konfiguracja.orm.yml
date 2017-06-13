@@ -24,7 +24,8 @@ Backend\CommonBundle\Entity\Konfiguracja:
         - translatable
     main:
       type: boolean
-        
+
+# ...
   manyToOne:
       logo:
           targetEntity: Application\Sonata\MediaBundle\Entity\Media

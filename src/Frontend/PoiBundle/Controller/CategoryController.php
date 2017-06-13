@@ -54,13 +54,9 @@ class CategoryController extends Controller
     {
         $tr = $this->get('translator');
         $form = $this->createFormBuilder(null)
-            ->add('name', TextType::class)
-//            ->add('address', EntityType::class, array(
-//                "class" => 'Backend\AdministracyjneBundle\Entity\Adres',
-//                "multiple" => true,
-//                "required" => false,
-//            ))
+            ->add('name', TextType::class, array("label" => $tr->trans("frontend.name")))
             ->add('categories', EntityType::class, array(
+                "label" => $tr->trans("frontend.category.list.title"),
                 "class" => 'Application\Sonata\ClassificationBundle\Entity\Category',
                 'query_builder' => function (EntityRepository $er) use ($categoryId) {
                     return $er->createQueryBuilder('c')
@@ -69,7 +65,7 @@ class CategoryController extends Controller
                 "multiple" => true,
                 "required" => false,
             ))
-            ->add('save', SubmitType::class)
+            ->add('save', SubmitType::class, array("label" => $tr->trans("frontend.search"), "attr" => array("class" => "btn")))
             ->getForm();
 
         return $form;
@@ -84,30 +80,51 @@ class CategoryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $request = $this->get('request');
+        $tr = $this->get('translator');
 
         $categoryObject = null;
         $items = array();
+
+        // Frontend/PoiBundle/Controller/CategoryController.php
         $form = $this->generateFormCategory($id);
 
         if ($slug) {
             try {
+                $form->handleRequest($request);
+
+                //region ...
                 $categoryObject = $em->createQuery("SELECT c, m FROM ApplicationSonataClassificationBundle:Category c 
-                                                    LEFT JOIN c.media m 
-                                                    WHERE c.slug = :slug AND c.id = :id")
+                                                LEFT JOIN c.media m 
+                                                WHERE c.slug = :slug AND c.id = :id")
                     ->setParameter("slug", $slug)
                     ->setParameter("id", $id)
                     ->getSingleResult();
 
-                $items = $em->createQuery("SELECT p, pm, m, a, u, pc, c FROM BackendPoiBundle:Poi p "
-                    . "LEFT JOIN p.poi_media pm WITH pm.czywiodaca = true "
-                    . "LEFT JOIN pm.media m "
-                    . "LEFT JOIN p.adres a "
-                    . "LEFT JOIN p.user u "
-                    . "LEFT JOIN p.poi_category pc "
-                    . "LEFT JOIN pc.category c "
-                    . "WHERE c.id = :categoryId "
-                    . "ORDER BY p.updated_at DESC ")
-                    ->setParameter("categoryId", $categoryObject->getId())
+                $qb = $em->createQueryBuilder("p");
+                $items = $qb->select("p")
+                    ->from("BackendPoiBundle:Poi", "p")
+                    ->addSelect("pm")->leftJoin("p.poi_media", "pm")
+                    ->addSelect("m")->leftJoin("pm.media", "m")
+                    ->addSelect("a")->leftJoin("p.adres", "a")
+                    ->addSelect("u")->leftJoin("p.user", "u")
+                    ->addSelect("pc")->leftJoin("p.poi_category", "pc")
+                    ->addSelect("c")->leftJoin("pc.category", "c")
+                    ->where('c.id = :categoryId')
+                    ->setParameter("categoryId", $categoryObject->getId());
+                //endregion
+
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $formData = $form->getData();
+
+                    if (!empty($formData["name"])) {
+                        //region ...
+                        $items->andWhere("SIMILARITY(p.nazwa, :similarName) > 0.5 ")
+                            ->setParameter("similarName", $formData["name"]);
+                        //endregion
+                    }
+                }
+
+                $items = $items->getQuery()
                     ->getResult();
 
             } catch (Exception $e) {

@@ -2,13 +2,10 @@
     {% macro poiStage(etap, number) %}
         <li>
             <div class="collapsible-header">
-                <i class="material-icons">place</i> <i class="material-icons right">account_balance</i> {{ number }}. {{ etap.nazwa }}
+                <i class="material-icons">place</i> <i class="material-icons right">account_balance</i> {{ number }}. {{ etap.nazwa }} - {{ etap.dlugosc|default('-') }}m
             </div>
             <div class="collapsible-body">
                 <div>{{ etap.opis }}</div>
-                <div class="chip">
-                    {{ etap.poi.nazwa }}: {{ etap.poi.opis|truncate(50) }}
-                </div>
             </div>
         </li>
     {% endmacro %}
@@ -26,13 +23,13 @@
         </li>
     {% endmacro mediaStage %}
 
-    <div class="details-stages details-sector">
+    <div class="details-stages details-sector" >
         {% block detailsLocalization %}
             <div class=" mdl-typography--title  appText">
                 {{ "frontend.poi.stages"|trans }}
             </div>
             <div class="details-stages-list">
-                <ul class="collapsible" data-collapsible="accordion">
+                <ul class="collapsible" data-collapsible="expandable">
                     {% import _self as ms %}
                     {% for key, etap in detailsItem.etapySzlak %}
                         {% if etap.powiazanie == 'poi' %}

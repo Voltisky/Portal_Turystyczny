@@ -37,8 +37,10 @@ class ImportTerytCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine')->getManager();
         $this->output = $output;
 
+        $output->writeln(["Rozpoczęcie importu", "---------------------"]);
         $this->loadTerc();
         $this->loadSIMC();
+        $output->writeln(["---------------------", "Zakończenie importu"]);
     }
 
     private function loadTerc()
@@ -54,7 +56,6 @@ class ImportTerytCommand extends ContainerAwareCommand
             }
 
             mb_convert_variables("UTF-8", "Windows-1250", $rows);
-            //            $nazwaw = iconv("UTF-8", "CP1250", $rows[4]);
             if (array(null) !== $rows && $rows[4]) { // ignore blank lines
                 $gmi = $rows[2];
                 $pow = $rows[1];
@@ -100,6 +101,8 @@ class ImportTerytCommand extends ContainerAwareCommand
         }
 
         rewind($handle);
+
+        // Utworzenie paska z postępem
         $progressBar = new ProgressBar($this->output, $counter);
         $counter = 0;
         while (($rows = fgetcsv($handle, 100, ";")) !== false) {
@@ -110,9 +113,9 @@ class ImportTerytCommand extends ContainerAwareCommand
 
 
             mb_convert_variables("UTF-8", "Windows-1250", $rows);
-            if (isset($rows[6]) && $rows[6] && array(null) !== $rows) { // ignore blank lines
+            if (isset($rows[6]) && $rows[6] && array(null) !== $rows) {
                 $this->createAddress($em, $rows);
-                $progressBar->advance();
+                $progressBar->advance(); // Zwiększenie aktualnego stanu o 1
 
                 $counter++;
                 if ($counter % 100 == 0) {
@@ -123,6 +126,8 @@ class ImportTerytCommand extends ContainerAwareCommand
         }
 
         $em->flush();
+
+        // Zakończenie nasłuchiwania postępu
         $progressBar->finish();
 
         fclose($handle);
@@ -145,6 +150,7 @@ class ImportTerytCommand extends ContainerAwareCommand
 
     private function createAddress($em, $rows)
     {
+        //region Inicjalizacja danych
         $woj = $rows[0];
         $pow = $rows[1];
         $gmi = $rows[2];
@@ -159,6 +165,7 @@ class ImportTerytCommand extends ContainerAwareCommand
         $nazwaWoj = $this->wojewodztwa[$woj][4];
         $nazwaPow = $this->powiaty[$woj][$pow][4];
         $nazwaGmi = $this->gminy[$woj][$pow][$gmi][$rodz][4];
+        //endregion
 
         $address = new Adres();
         $addressId = $this->checkIfAddressExists($em, $sym);

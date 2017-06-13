@@ -37,13 +37,13 @@ function Map() {
                     color: 'rgba(255, 255, 255, 0.2)'
                 }),
                 stroke: new ol.style.Stroke({
-                    color: '#ffcc33',
-                    width: 2
+                    color: 'red',
+                    width: 4
                 }),
                 image: new ol.style.Circle({
                     radius: 7,
                     fill: new ol.style.Fill({
-                        color: '#ffcc33'
+                        color: 'red'
                     })
                 })
             })

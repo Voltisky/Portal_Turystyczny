@@ -20,7 +20,7 @@
             <div id="drawer" class="side-nav">
                 {{ knp_menu_render(menuItem, {'template': 'FrontendMainBundle:Menu:menu.html.twig'}) }}
             </div>
-            <a href="{{ path("frontend_main_homepage_lang", {"_locale": app.request.locale}) }}" class="left">{{ konfiguracja.nazwa }}</a>
+            <a href="{{ path("frontend_main_homepage_lang", {"_locale": app.request.locale}) }}" class="left" style="padding-left: 30px;">{{ konfiguracja.nazwa }}</a>
             <div class="right">
                 {% include "@FrontendMain/User/user_header.html.twig" %}
             </div>

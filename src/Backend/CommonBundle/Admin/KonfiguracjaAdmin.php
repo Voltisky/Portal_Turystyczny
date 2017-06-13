@@ -27,6 +27,7 @@ class KonfiguracjaAdmin extends Admin {
                 ->add('main');
     }
 
+    // ...
     protected function configureListFields(ListMapper $list) {
         $list
                 ->addIdentifier("nazwa")

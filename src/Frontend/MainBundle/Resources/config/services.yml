@@ -10,6 +10,7 @@ services:
         tags:
             - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu
 
+    # Frontend/MainBundle/Resources/config/services.yml
     app.main.konfiguracja:
           class: Frontend\MainBundle\Services\KonfiguracjaService
           arguments: [ "@doctrine.orm.entity_manager" ]

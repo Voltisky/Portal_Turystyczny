@@ -29,6 +29,8 @@ class MenuBuilder
         $menu->addChild($tr->trans("frontend.main.menu.home"), array(
             'route' => 'frontend_main_homepage_lang',
             "attributes" => array("class" => "mdl-navigation__link grey-text text-lighten-3")));
+
+        // ...
         $menu->addChild($tr->trans("frontend.main.menu.route"), array(
             'route' => 'frontend_poi_szlaki',
             "attributes" => array("class" => "mdl-navigation__link grey-text text-lighten-3")));
@@ -47,9 +49,7 @@ class MenuBuilder
         $menu->addChild($tr->trans("frontend.main.menu.near"), array(
             'route' => 'frontend_poi_near',
             "attributes" => array("class" => "mdl-navigation__link grey-text text-lighten-3")));
-        // ... add more children
-//	dump($menu);
-//	exit;
+
         return $menu;
     }
 

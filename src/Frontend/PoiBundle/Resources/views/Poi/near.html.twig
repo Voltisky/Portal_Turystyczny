@@ -1,6 +1,7 @@
 {% extends "@FrontendMain/Main/subPage.html.twig" %}
 
 {% block subPage_content %}
+    {# ...#}
     <div class="row">
         <div class="range-field">
             <input type="range" id="nearRange" min="0" max="1000" value="20"/>
@@ -8,9 +9,10 @@
         <h3 id="processing">{{ "frontend.w_poblizu.processing.get_position"|trans }}</h3>
         <div id="near-map"></div>
     </div>
-    <div class="nearItems">
+    {# ... #}
 
-    </div>
+
+    <div class="nearItems"></div>
     <script type="text/javascript">
         $(document).ready(function () {
 

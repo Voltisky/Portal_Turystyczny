@@ -73,6 +73,7 @@ class PoiAdmin extends Admin
             ->with('Informacje podstawowe', array("class" => "col-md-8"))
             ->add('nazwa')
             ->add('poi_category', 'sonata_type_collection', array(
+                'required' => false,
                 'cascade_validation' => true), array(
                 'edit' => 'inline',
                 'by_reference' => false,
@@ -233,20 +234,17 @@ class PoiAdmin extends Admin
      */
     public function prePersist($object)
     {
-        foreach($object->getTranslations() as $trans)
-        {
-            if(empty($trans->getContent()))
-            {
-                $object->removeTranslation($trans);
-            }
-        }
+//        foreach ($object->getTranslations() as $trans) {
+//            if (empty($trans->getContent())) {
+//                $object->removeTranslation($trans);
+//            }
+//        }
 
         $object->setSezonowosc(json_encode($object->getSezonowosc()));
         $this->generujAlias($object);
         $user = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser();
         $object->setCreatedByUser($user);
         $object->setModifiedByUser($user);
-        $object->setStatusPoi('w edycji');
         if ($this->id($this->getSubject())) {
             foreach ($object->getPoiMedia() as $AB) {
                 $AB->setPoi($object);
@@ -255,16 +253,12 @@ class PoiAdmin extends Admin
                 $AC->setPoi($object);
             }
         }
-
-        //        $this->saveMiniatura($object);
     }
 
     public function preUpdate($object)
     {
-        foreach($object->getTranslations() as $trans)
-        {
-            if(empty($trans->getContent()))
-            {
+        foreach ($object->getTranslations() as $trans) {
+            if (empty($trans->getContent())) {
                 $object->removeTranslation($trans);
             }
         }

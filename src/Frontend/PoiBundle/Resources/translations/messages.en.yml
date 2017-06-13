@@ -1,7 +1,14 @@
 frontend:
+    w_poblizu:
+        processing:
+            get_position: Getting position on the map
+            not_found: Could not localize position
+    szlaki:
+        title: List of trails
     poi:
+        most_read: Most read
+        latest_added: Last added
         latest: News
-        local_informations: Informacje lokalne
         read_more: Read More
         created_at: Creation Date
         autor: Author
@@ -15,10 +22,13 @@ frontend:
         informacje: Extra informations
         localization: Localization
         similarItems: Similar
+        local_informations: Local informactions
+        stages: Stages
     details:
-        hits_number: Views
+        hits_number: Views number
     map:
         title: Map
     category:
+        title: Object and category list
         list:
             title: Category list

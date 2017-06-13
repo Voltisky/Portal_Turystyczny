@@ -112,7 +112,6 @@ class DefaultController extends Controller
                 $poi->setUser($this->getUser());
                 $poi->setStatusPoi("zgloszony");
 
-//                dump($poi); exit;
                 $em->persist($poi);
                 $em->flush();
 

@@ -2,6 +2,7 @@
 
 namespace Frontend\MainBundle\Services;
 
+// Frontend/MainBundle/Services/KonfiguracjaService.php
 class KonfiguracjaService {
 
     private $em;

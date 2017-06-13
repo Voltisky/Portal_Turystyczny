@@ -33,7 +33,6 @@ fos_user:
         user_manager: sonata.user.orm.user_manager
 
 framework:
-    #esi: ~
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:

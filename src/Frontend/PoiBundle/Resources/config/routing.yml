@@ -2,9 +2,16 @@ frontend_poi_szlaki:
     path:     /{_locale}/szlaki
     defaults: { _controller: FrontendPoiBundle:Szlaki:szlaki }
 
+# Frontend/PoiBundle/Resources/config/routing.yml
 frontend_poi_categories:
     path:     /{_locale}/categories/{parent_id}/
     defaults: { _controller: FrontendPoiBundle:Category:list }
+    requirements:
+      parent_id:  \d+
+      _locale:  pl|en|de
+
+# ...
+
 
 frontend_poi_near:
     path:     /{_locale}/near/

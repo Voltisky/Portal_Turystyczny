@@ -11,7 +11,7 @@
                     <span class="title">
                         <a href="{{ path("frontend_user_object_list_edit", {"id": item.id}) }}">{{ item.nazwa }}</a>
                     </span>
-                    <p style="padding-top:30px;">{{ item.opis|striptags|truncate(255) }}</p>
+                    <p style="padding-top:30px;">{{ item.opis|striptags|truncate(255)|raw }}</p>
                     <div class="secondary-content ">
                         <a href="{{ item|getPath }}" class="btn">{{ "frontend.user.object.show"|trans }}</a>
                         <a href="{{ path("frontend_user_object_list_edit", {"id": item.id}) }}" class="btn">{{ "frontend.user.object.edit.title"|trans }}</a>

@@ -15,7 +15,7 @@
         </div>
     {% endif %}
     <div class="mdl-card__supporting-text">
-        {{item.polozenie|striptags|truncate(255)}}
+        {{item.polozenie|striptags|truncate(255)|raw}}
     </div>
 
     <div class="mdl-card__supporting-text">

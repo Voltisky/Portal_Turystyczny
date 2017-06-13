@@ -1,16 +1,26 @@
 <div class="col s12 ">
     <div class="details-content-info">
         <div class="details-content-hits chip hoverable">
-            <i class="material-icons" style="vertical-align:middle;">visibility</i> {{ "frontend.details.hits_number"|trans }}: {{ detailsItem.hits|default('0') }}
+            <i class="material-icons"
+               style="vertical-align:middle;">visibility</i> {{ "frontend.details.hits_number"|trans }}
+            : {{ detailsItem.hits|default('0') }}
         </div>
         <div class="details-content-created chip hoverable right">
-            <i class="material-icons" style="vertical-align:middle;">date_range</i> {{ "frontend.poi.created_at"|trans }}: {{ detailsItem.createdAt|date("d-m-Y") }}
+            <i class="material-icons"
+               style="vertical-align:middle;">date_range</i> {{ "frontend.poi.created_at"|trans }}
+            : {{ detailsItem.createdAt|date("d-m-Y") }}
         </div>
         <div class="details-content-autor chip hoverable right">
-            <i class="material-icons" style="vertical-align:middle;">account_circle</i> {{ "frontend.poi.autor"|trans }}: {{ detailsItem.user }}
+            <i class="material-icons" style="vertical-align:middle;">account_circle</i> {{ "frontend.poi.autor"|trans }}
+            : {{ detailsItem.user }}
         </div>
     </div>
     <div class="details-content-description">
-        {{ detailsItem.opis|striptags }}
+        {{ detailsItem.opis|raw }}
     </div>
+    {% if detailsItem.zrodlo|length > 0 %}
+        <div class=""row col s12>
+            {{ "frontend.poi.zrodlo"|trans }}: {{ detailsItem.zrodlo }}
+        </div>
+    {% endif %}
 </div>

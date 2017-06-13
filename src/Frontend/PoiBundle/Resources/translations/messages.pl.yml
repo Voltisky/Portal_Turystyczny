@@ -1,4 +1,6 @@
 frontend:
+    name: Nazwa
+    search: Szukaj
     w_poblizu:
         processing:
             get_position: Pobieranie pozycji na mapie
@@ -6,6 +8,7 @@ frontend:
     szlaki:
         title: Lista szlaków
     poi:
+        zrodlo: Źródło
         most_read: Najczęściej czytane
         latest_added: Ostatnio dodane
         latest: Aktualności
@@ -19,6 +22,7 @@ frontend:
         nrfax: Numer fax
         www: Adres WWW
         email: Adres E-mail
+        # ...
         wspolrzedne: Współrzędne
         informacje: Informacje dodatkowe
         localization: Lokalizacja
@@ -32,3 +36,4 @@ frontend:
         title: Lista obiektów w kategorii
         list:
             title: Lista kategorii
+

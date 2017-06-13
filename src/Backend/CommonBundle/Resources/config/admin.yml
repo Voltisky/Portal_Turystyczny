@@ -10,3 +10,4 @@ services:
         calls:
             - [ setTranslationDomain, [messages]]
             - [ setLabelTranslatorStrategy, [ @sonata.admin.label.strategy.underscore ]]
+

@@ -16,7 +16,7 @@ class DefaultController extends Controller {
 
 	try
 	{
-	    $items = $em->createQuery("SELECT p.id, p.nazwa, p.wgs_x, p.wgs_y FROM BackendPoiBundle:Poi p "
+	    $items = $em->createQuery("SELECT p.id, p.wgs_x, p.wgs_y FROM BackendPoiBundle:Poi p "
 			    . "WHERE p.status_poi = 'opublikowany' "
 			    . "AND p.wgs_x is not null "
 			    . "AND p.wgs_y is not null ")
